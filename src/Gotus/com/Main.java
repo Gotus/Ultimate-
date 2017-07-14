@@ -79,5 +79,104 @@ public class Main {
         String playerGlobalLocation = new String(buf.toString());
 
         System.out.println("You are in " + playerGlobalLocation + " territory");
+
+        System.out.println("------------------------------------------------------------------");
+        System.out.println("Now you are in skill menu. You can set you base stats and skills.");
+        System.out.println("You can spend not all skillpoints/statpoints. When you set your character as you want, input ACCEPT");
+        int statpoints = 10;
+        int strength = 3;
+        int agility = 3;
+        int stamina = 3;
+        int charisma = 3;
+        int intellegence = 3;
+        StringBuilder command = new StringBuilder();
+        while (!command.toString().equals("ACCEPT")) {
+
+            command = new StringBuilder(consoleInput.nextLine().toUpperCase());
+            if ((statpoints == 0) && (!command.toString().equals("ACCEPT"))) {
+
+                System.out.println("You have not statpoints");
+                continue;
+            }
+
+            switch (command.toString())
+            {
+                case "STR UP":
+                    statpoints -= 1;
+                    strength += 1;
+                    System.out.println("Your STRENGTH: " + strength);
+                    System.out.println("Your STATPOINTS: " + statpoints);
+                    break;
+                case "STR DOWN":
+                    statpoints -= 1;
+                    strength -= 1;
+                    System.out.println("Your STRENGTH: " + strength);
+                    System.out.println("Your STATPOINTS: " + statpoints);
+
+                    break;
+                case "AGI UP":
+                    statpoints -= 1;
+                    agility += 1;
+                    System.out.println("Your AGILITY: " + agility);
+                    System.out.println("Your STATPOINTS: " + statpoints);
+                    break;
+                case "AGI DOWN":
+                    statpoints -= 1;
+                    agility -= 1;
+                    System.out.println("Your AGILITY: " + agility);
+                    System.out.println("Your STATPOINTS: " + statpoints);
+                    break;
+                case "STA UP":
+                    statpoints -= 1;
+                    stamina += 1;
+                    System.out.println("Your STAMINA: " + stamina);
+                    System.out.println("Your STATPOINTS: " + statpoints);
+                    break;
+                case "STA DOWN":
+                    statpoints -= 1;
+                    stamina -= 1;
+                    System.out.println("Your STAMINA: " + stamina);
+                    System.out.println("Your STATPOINTS: " + statpoints);
+                    break;
+                case "CHA UP":
+                    statpoints -= 1;
+                    charisma += 1;
+                    System.out.println("Your CHARISMA: " + charisma);
+                    System.out.println("Your STATPOINTS: " + statpoints);
+                    break;
+                case "CHA DOWN":
+                    statpoints -= 1;
+                    charisma -= 1;
+                    System.out.println("Your CHARISMA: " + charisma);
+                    System.out.println("Your STATPOINTS: " + statpoints);
+                    break;
+                case "INT UP":
+                    statpoints -= 1;
+                    intellegence += 1;
+                    System.out.println("Your INTELLIGENCE: " + intellegence);
+                    System.out.println("Your STATPOINTS: " + statpoints);
+                    break;
+                case "INT DOWN":
+                    statpoints -= 1;
+                    intellegence -= 1;
+                    System.out.println("Your INTELLIGENCE: " + intellegence);
+                    System.out.println("Your STATPOINTS: " + statpoints);
+                    break;
+
+                case "RESET STATS":
+                    System.out.println("Are you sure?");
+                    if (consoleInput.next().toUpperCase().equals("YES")) {
+
+                        statpoints = 10;
+                        strength = 3;
+                        agility = 3;
+                        stamina = 3;
+                        charisma = 3;
+                        intellegence = 3;
+                        System.out.println("All your stats reduced to 3. You have " + statpoints + " STATPOINTS");
+                    }
+                    break;
+            }
+        }
     }
 }
