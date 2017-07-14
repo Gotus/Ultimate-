@@ -18,21 +18,13 @@ public class Main {
         MACHINE
     }
 
-    public enum Country {
-
-        SALONIA,
-        SAISON,
-        POFT,
-        BOFSK,
-        ALTEA,
-        SALMANDO
-    }
-
     public static void main(String[] args) {
 
         Scanner consoleInput = new Scanner(System.in);
         System.out.println("Select character name");
         String playerName = new String(consoleInput.next());
+        StringBuilder buf = new StringBuilder();
+        String playerRace;
 
         boolean success = false;
         while (!success) {
@@ -49,32 +41,43 @@ public class Main {
 
                 if (selectedRace.toString().toUpperCase().equals(r.toString())) {
 
-                    System.out.println("You successfully selected you race, which is " + r);
+                    buf.append(r.toString());
                     success = true;
                 }
             }
         }
 
+        playerRace = new String(buf.toString());
         success = false;
 
-        while (!success){
+        System.out.println("You successfully selected you race, which is " + playerRace);
+        switch (playerRace.toString()) {
 
-            System.out.println("When you grew up, you decided to travel the world. You first destination is...");
-            for (Country c: Country.values()) {
-
-                System.out.println(c.ordinal() + 1 + " " + c);
-            }
-
-            StringBuilder selectedCountry = new StringBuilder(consoleInput.next());
-
-            for (Country c: Country.values()) {
-
-                if (selectedCountry.toString().toUpperCase().equals(c.toString())) {
-
-                    System.out.println("Now you are in " + c);
-                    success = true;
-                }
-            }
+            case "ELF":
+                buf = new StringBuilder("MUA FOREST");
+                break;
+            case "DRAGOON":
+                buf = new StringBuilder("DEIST");
+                break;
+            case "HUMAN":
+                buf = new StringBuilder("FYNN");
+                break;
+            case "CRYSTALL":
+                buf = new StringBuilder("CRYSTALLION");
+                break;
+            case "GOLEM":
+                buf = new StringBuilder("LIVING ROCK");
+                break;
+            case "ROBOT":
+                buf = new StringBuilder("METAL BASE");
+                break;
+            case "MACHINE":
+                buf = new StringBuilder("U-78 MOD.14");
+                break;
         }
+
+        String playerGlobalLocation = new String(buf.toString());
+
+        System.out.println("You are in " + playerGlobalLocation + " territory");
     }
 }
