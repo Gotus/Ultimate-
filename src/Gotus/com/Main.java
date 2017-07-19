@@ -20,11 +20,12 @@ public class Main {
         PlayCharacter character = new PlayCharacter();
         //System.out.println(character.setName("Gotus"));
         //System.out.println(character.setRace(Race.ELF));
-        //System.out.println(character.increaseSkill("PD", 4));
-        //System.out.println(character.getSkillPoints());
-        //character.acceptSkills();
-        //character.resetSkills();
-        //System.out.println(character.getSkillValue("PD"));
+        character.addSkill(Skills.POWERSTRIKE);
+        System.out.println(character.increaseSkill(Skills.POWERSTRIKE, 4));
+        System.out.println(character.getSkillPoints());
+        character.acceptSkills();
+        character.resetSkills();
+        System.out.println(character.getSkillValue(Skills.POWERSTRIKE));
         Scanner consoleInput = new Scanner(System.in);
     }
 }

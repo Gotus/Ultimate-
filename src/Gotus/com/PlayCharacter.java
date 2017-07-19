@@ -6,6 +6,21 @@ import java.util.Map;
 /**
  * Created by Gotus on 19.07.2017.
  */
+
+enum Stats {
+
+    STRENGTH,
+    AGILITY,
+    INTELLIGENCE
+}
+
+enum Skills {
+
+    POWERSTRIKE,
+    POWERDRAW,
+    POWERTHROW
+}
+
 public class PlayCharacter {
 
     private Race race;
@@ -14,8 +29,8 @@ public class PlayCharacter {
     private int copySKValue;
     private int statPoints;
     private int copySTValue;
-    private HashMap<String, Integer> skills;
-    private HashMap<String, Integer> stats;
+    private HashMap<Skills, Integer> skills;
+    private HashMap<Stats, Integer> stats;
 
     PlayCharacter() {
 
@@ -25,48 +40,36 @@ public class PlayCharacter {
         copySKValue = skillPoints;
         statPoints = 10;
         copySTValue = statPoints;
-        stats = new HashMap<String, Integer>();
-        skills = new HashMap<String, Integer>();
-
-        stats.put("STR", 1);
-        stats.put("AGI", 1);
-        stats.put("STA", 1);
-        stats.put("CHA", 1);
-        stats.put("INT", 1);
-
-        skills.put("PS", 1);
-        skills.put("AC", 1);
-        skills.put("PD", 1);
-        skills.put("PT", 1);
-        skills.put("SH", 1);
+        stats = new HashMap<Stats, Integer>();
+        skills = new HashMap<Skills, Integer>();
 
     }
 
-    int increaseStat(String statName, int value) {
+    public int increaseStat(Stats stat, int value) {
 
-        if (stats.containsKey(statName) && (value <= statPoints) && (value > 0)) {
+        if (!(stats.containsKey(stat) && (value <= statPoints) && (value > 0))) {
 
-            int oldValue = stats.get(statName);
-            statPoints -= value;
-            stats.put(statName, oldValue + value);
-            return stats.get(statName);
+            throw new IllegalArgumentException();
         }
-        return -1;
+        int oldValue = stats.get(stat);
+        statPoints -= value;
+        stats.put(stat, oldValue + value);
+        return stats.get(stat);
     }
 
-    int increaseSkill(String skillName, int value) {
+    public int increaseSkill(Skills skill, int value) {
 
-        if (skills.containsKey(skillName) && (value <= skillPoints) && (value > 0)) {
+        if ((skills.containsKey(skill) && (value <= skillPoints) && (value > 0))) {
 
-            int oldValue = skills.get(skillName);
-            skillPoints -= value;
-            skills.put(skillName, oldValue + value);
-            return skills.get(skillName);
+            throw new IllegalArgumentException();
         }
-        return -1;
+        int oldValue = skills.get(skill);
+        skillPoints -= value;
+        skills.put(skill, oldValue + value);
+        return skills.get(skill);
     }
 
-    void resetSkills(){
+    public void resetSkills(){
 
         if (copySKValue == 0) {
 
@@ -78,14 +81,14 @@ public class PlayCharacter {
         }
 
         skillPoints = copySKValue;
-        for (Map.Entry<String, Integer> entry: skills.entrySet()) {
+        for (Map.Entry<Skills, Integer> entry: skills.entrySet()) {
 
             skills.put(entry.getKey(), 1);
             //System.out.println(entry.getKey() + " " + entry.getValue());
         }
     }
 
-    void resetStats() {
+    public void resetStats() {
 
         if (copySTValue == 0) {
 
@@ -97,48 +100,48 @@ public class PlayCharacter {
         }
 
         statPoints = copySTValue;
-        for (Map.Entry<String, Integer> entry: stats.entrySet()) {
+        for (Map.Entry<Stats, Integer> entry: stats.entrySet()) {
 
             stats.put(entry.getKey(), 1);
         }
     }
 
-    void addStat(String statName) {
+    public void addStat(Stats stat) {
 
-        stats.put(statName, 1);
+        stats.put(stat, 1);
     }
 
 
-    void addSkill(String statName) {
+    public void addSkill(Skills skill) {
 
-        skills.put(statName, 1);
+        skills.put(skill, 1);
     }
 
-    void acceptSkills() {
+    public void acceptSkills() {
 
         copySKValue = 0;
     }
 
-    void acceptStats() {
+    public void acceptStats() {
 
         copySTValue = 0;
     }
 
-    int addSkillPoints(int value) {
+    public int addSkillPoints(int value) {
 
         skillPoints = value;
         copySKValue = value;
         return value;
     }
 
-    int addStatPoints(int value) {
+    public int addStatPoints(int value) {
 
         statPoints = value;
         copySTValue = value;
         return value;
     }
 
-    Race setRace(Race race) {
+    public Race setRace(Race race) {
 
         for (Race r: Race.values()) {
 
@@ -152,39 +155,38 @@ public class PlayCharacter {
         return null;
     }
 
-    String setName(String newName) {
+    public String setName(String newName) {
 
         name = newName;
         return name;
     }
 
-    int getSkillPoints() {
+    public int getSkillPoints() {
 
         return skillPoints;
     }
 
-    int getStatPoints() {
+    public int getStatPoints() {
 
         return statPoints;
     }
 
-    int getStatValue(String name) {
+    public int getStatValue(Stats name) {
 
-        if (stats.containsKey(name)) {
+        if (!stats.containsKey(name)) {
 
-            return  stats.get(name);
+            throw new IllegalArgumentException();
         }
-
-        return -1;
+        return  stats.get(name);
     }
 
-    int getSkillValue(String name) {
+    public int getSkillValue(Skills name) {
 
         if (skills.containsKey(name)) {
 
-            return  skills.get(name);
+            throw new IllegalArgumentException();
         }
 
-        return -1;
+        return  skills.get(name);
     }
 }
