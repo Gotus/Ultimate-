@@ -189,4 +189,9 @@ public class PlayCharacter {
 
         return  skills.get(name);
     }
+
+    public Race getRace() {
+
+        return this.race;
+    }
 }
