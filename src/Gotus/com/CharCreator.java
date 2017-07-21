@@ -2,6 +2,8 @@ package Gotus.com;
 
 import java.util.Scanner;
 
+
+
 /**
  * Created by Gotus on 20.07.2017.
  */
@@ -40,6 +42,9 @@ public class CharCreator {
         }
 
         System.out.println("You successfully selected your race as " + newCharacter.getRace());
+
+        //Here must be my code, but here digital nothing
+
         return newCharacter;
     }
 }
