@@ -1,6 +1,7 @@
 package Gotus.com;
 
 import javax.swing.*;
+import java.nio.file.Watchable;
 import java.util.Scanner;
 
 
@@ -8,7 +9,7 @@ import java.util.Scanner;
 /**
  * Created by Gotus on 20.07.2017.
  */
-public class CharCreator {
+public class CommandHandler {
 
     public static PlayCharacter createCharacter(PlayCharacter newCharacter) {
 
@@ -49,5 +50,18 @@ public class CharCreator {
         //Here must be my code, but here digital nothing
 
         return newCharacter;
+    }
+
+    public static void handleCommand(String command, PlayCharacter character, World world) {
+
+        switch (command) {
+
+            case "create character":
+                createCharacter(character);
+                break;
+            case "quit":
+                world.setActive(false);
+                break;
+        }
     }
 }

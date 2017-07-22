@@ -17,12 +17,14 @@ public class World {
     private int length;
     private int height;
     private int[] worldCells;
+    private boolean active;
 
     public World() {
 
         name = null;
         length = 0;
         height = 0;
+        active = true;
         worldCells = null;
     }
 
@@ -90,5 +92,15 @@ public class World {
     {
 
         return this.worldCells;
+    }
+
+    public void setActive(boolean value) {
+
+        this.active = value;
+    }
+
+    public boolean getActive() {
+
+        return this.active;
     }
 }

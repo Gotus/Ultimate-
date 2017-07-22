@@ -19,6 +19,7 @@ public class Main {
 
         PlayCharacter character = new PlayCharacter();
         World myWorld = new World();
+        Scanner consoleInput = new Scanner(System.in);
         //System.out.println(character.setName("Gotus"));
         //System.out.println(character.setRace(Race.ELF));
         //character.addSkill(Skills.POWERSTRIKE);
@@ -28,7 +29,11 @@ public class Main {
         //character.resetSkills();
         //System.out.println(character.getSkillValue(Skills.POWERDRAW));
         //CharCreator.createCharacter(character);
-        myWorld.createWorldArray(Size.AVERAGE);
-        myWorld.createWorldArray();
+        //myWorld.createWorldArray(Size.AVERAGE);
+        //myWorld.createWorldArray();
+        while (myWorld.getActive()) {
+
+            CommandHandler.handleCommand(consoleInput.nextLine(), character, myWorld);
+        }
     }
 }
