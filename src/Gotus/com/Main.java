@@ -18,6 +18,7 @@ public class Main {
     public static void main(String[] args) {
 
         PlayCharacter character = new PlayCharacter();
+        World myWorld = new World();
         //System.out.println(character.setName("Gotus"));
         //System.out.println(character.setRace(Race.ELF));
         //character.addSkill(Skills.POWERSTRIKE);
@@ -26,6 +27,9 @@ public class Main {
         //character.acceptSkills();
         //character.resetSkills();
         //System.out.println(character.getSkillValue(Skills.POWERDRAW));
-        CharCreator.createCharacter(character);
+        //CharCreator.createCharacter(character);
+        myWorld.setHeight(5);
+        myWorld.setLength(7);
+        myWorld.createWorldArray();
     }
 }

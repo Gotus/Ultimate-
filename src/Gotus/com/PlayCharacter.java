@@ -80,10 +80,6 @@ public class PlayCharacter {
 
         if (copySKValue == 0) {
 
-            /*for (Map.Entry<String, Integer> entry: skills.entrySet()) {
-
-                System.out.println(entry.getKey() + " " + entry.getValue());
-            }*/
             return;
         }
 
@@ -91,7 +87,6 @@ public class PlayCharacter {
         for (Map.Entry<Skills, Integer> entry: skills.entrySet()) {
 
             skills.put(entry.getKey(), 1);
-            //System.out.println(entry.getKey() + " " + entry.getValue());
         }
     }
 
@@ -99,10 +94,6 @@ public class PlayCharacter {
 
         if (copySTValue == 0) {
 
-            /*for (Map.Entry<String, Integer> entry: stats.entrySet()) {
-
-                System.out.println(entry.getKey() + " " + entry.getValue());
-            }*/
             return;
         }
 
