@@ -28,8 +28,7 @@ public class Main {
         //character.resetSkills();
         //System.out.println(character.getSkillValue(Skills.POWERDRAW));
         //CharCreator.createCharacter(character);
-        myWorld.setHeight(5);
-        myWorld.setLength(7);
+        myWorld.createWorldArray(Size.AVERAGE);
         myWorld.createWorldArray();
     }
 }
