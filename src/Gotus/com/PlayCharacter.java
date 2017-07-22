@@ -21,6 +21,12 @@ enum Skills {
     POWERTHROW
 }
 
+enum Cities {
+
+    MELMOND,
+    PRAVOKA
+}
+
 public class PlayCharacter {
 
     private Race race;
@@ -31,18 +37,19 @@ public class PlayCharacter {
     private int copySTValue;
     private HashMap<Skills, Integer> skills;
     private HashMap<Stats, Integer> stats;
+    private Cities currentCity;
 
     PlayCharacter() {
 
         race = null;
         name = null;
+        currentCity = null;
         skillPoints = 10;
         copySKValue = skillPoints;
         statPoints = 10;
         copySTValue = statPoints;
         stats = new HashMap<Stats, Integer>();
         skills = new HashMap<Skills, Integer>();
-
     }
 
     public int increaseStat(Stats stat, int value) {
@@ -193,5 +200,23 @@ public class PlayCharacter {
     public Race getRace() {
 
         return this.race;
+    }
+
+    public void setCity() {
+
+        switch (this.race) {
+
+            case ELF:
+                this.currentCity = Cities.MELMOND;
+                break;
+            case HUMAN:
+                this.currentCity = Cities.PRAVOKA;
+                break;
+        }
+    }
+
+    public Cities getCurrentCity() {
+
+        return this.currentCity;
     }
 }

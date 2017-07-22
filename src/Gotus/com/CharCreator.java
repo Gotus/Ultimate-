@@ -1,5 +1,6 @@
 package Gotus.com;
 
+import javax.swing.*;
 import java.util.Scanner;
 
 
@@ -43,6 +44,8 @@ public class CharCreator {
 
         System.out.println("You successfully selected your race as " + newCharacter.getRace());
 
+        newCharacter.setCity();
+        System.out.println("Now you are in " + newCharacter.getCurrentCity());
         //Here must be my code, but here digital nothing
 
         return newCharacter;
