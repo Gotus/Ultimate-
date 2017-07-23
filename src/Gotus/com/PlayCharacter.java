@@ -38,6 +38,9 @@ public class PlayCharacter {
     private HashMap<Skills, Integer> skills;
     private HashMap<Stats, Integer> stats;
     private Cities currentCity;
+    int currentLocation;
+    private int x;
+    private int y;
 
     PlayCharacter() {
 
@@ -50,6 +53,9 @@ public class PlayCharacter {
         copySTValue = statPoints;
         stats = new HashMap<Stats, Integer>();
         skills = new HashMap<Skills, Integer>();
+        x = 1;
+        y = 1;
+        currentLocation = 0;
     }
 
     public int increaseStat(Stats stat, int value) {
@@ -209,5 +215,35 @@ public class PlayCharacter {
     public Cities getCurrentCity() {
 
         return this.currentCity;
+    }
+
+    public void setX(int value){
+
+        this.x = value;
+    }
+
+    public void setY(int value) {
+
+        this.y = value;
+    }
+
+    public int getX() {
+
+        return this.x;
+    }
+
+    public int getY() {
+
+        return this.y;
+    }
+
+    public int getCurrentLocation () {
+
+        return this.currentLocation;
+    }
+
+    public void setCurrentLocation(int value) {
+
+        this.currentLocation = value;
     }
 }

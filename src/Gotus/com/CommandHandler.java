@@ -9,7 +9,7 @@ import java.util.Scanner;
 /**
  * Created by Gotus on 20.07.2017.
  */
-public class CommandHandler {
+public class CommandHandler{
 
     public static PlayCharacter createCharacter(PlayCharacter newCharacter) {
 
@@ -61,6 +61,46 @@ public class CommandHandler {
                 break;
             case "quit":
                 world.setActive(false);
+                break;
+            case "move north":
+                if ((character.getY() > 0) && (character != null)){
+
+                    character.setY(character.getY() - 1);
+                    character.setCurrentLocation(world.getWorldCells()[character.getX() + (character.getY() - 1) * world.getLength()]);
+                    System.out.println("Current x: " + character.getX());
+                    System.out.println("Current y: " + character.getY());
+                    System.out.println(character.getCurrentLocation());
+                }
+                break;
+            case "move south":
+                if ((character.getY() < world.getHeight()) && (character != null)) {
+
+                    character.setY(character.getY() + 1);
+                    character.setCurrentLocation(world.getWorldCells()[character.getX() + (character.getY() - 1) * world.getLength()]);
+                    System.out.println("Current x: " + character.getX());
+                    System.out.println("Current y: " + character.getY());
+                    System.out.println(character.getCurrentLocation());
+                }
+                break;
+            case "move west":
+                if ((character.getX() > 0) && (character != null)) {
+
+                    character.setX(character.getX() - 1);
+                    character.setCurrentLocation(world.getWorldCells()[character.getX() + (character.getY() - 1) * world.getLength()]);
+                    System.out.println("Current x: " + character.getX());
+                    System.out.println("Current y: " + character.getY());
+                    System.out.println(character.getCurrentLocation());
+                }
+                break;
+            case "move east":
+                if ((character.getX() < world.getLength() - 1) && (character != null)) {
+
+                    character.setX(character.getX() + 1);
+                    character.setCurrentLocation(world.getWorldCells()[character.getX() + (character.getY() - 1) * world.getLength()]);
+                    System.out.println("Current x: " + character.getX());
+                    System.out.println("Current y: " + character.getY());
+                    System.out.println(character.getCurrentLocation());
+                }
                 break;
         }
     }

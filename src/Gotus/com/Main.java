@@ -20,6 +20,7 @@ public class Main {
         PlayCharacter character = new PlayCharacter();
         World myWorld = new World();
         Scanner consoleInput = new Scanner(System.in);
+        myWorld.createWorldArray();
         //System.out.println(character.setName("Gotus"));
         //System.out.println(character.setRace(Race.ELF));
         //character.addSkill(Skills.POWERSTRIKE);

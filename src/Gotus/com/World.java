@@ -22,8 +22,8 @@ public class World {
     public World() {
 
         name = null;
-        length = 0;
-        height = 0;
+        length = 10;
+        height = 10;
         active = true;
         worldCells = null;
     }
@@ -64,7 +64,6 @@ public class World {
         for (int i = 0; i < worldCells.length; i++) {
 
             worldCells[i] = i;
-            System.out.println(worldCells[i]);
         }
     }
 
