@@ -5,6 +5,18 @@ package Gotus.com;
  */
 public abstract class Command {
 
-    private String commandName;
-    private String description;
+    protected String commandName;
+    protected String description;
+
+    public String getCommandName()
+    {
+        return commandName;
+    }
+
+    public String getDescription()
+    {
+        return description;
+    }
+
+    abstract void call(PlayCharacter newCharacter, World world);
 }

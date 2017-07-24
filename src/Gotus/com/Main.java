@@ -20,6 +20,7 @@ public class Main {
         PlayCharacter character = new PlayCharacter();
         World myWorld = new World();
         Scanner consoleInput = new Scanner(System.in);
+
         myWorld.createWorldArray();
         //System.out.println(character.setName("Gotus"));
         //System.out.println(character.setRace(Race.ELF));
@@ -32,9 +33,10 @@ public class Main {
         //CharCreator.createCharacter(character);
         //myWorld.createWorldArray(Size.AVERAGE);
         //myWorld.createWorldArray();
+        CommandHandler commandHandler = new CommandHandler();
         while (myWorld.getActive()) {
 
-            CommandHandler.handleCommand(consoleInput.nextLine(), character, myWorld);
+            commandHandler.handleCommand(consoleInput.nextLine(), character, myWorld);
         }
     }
 }

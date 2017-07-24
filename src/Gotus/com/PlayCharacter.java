@@ -53,8 +53,8 @@ public class PlayCharacter {
         copySTValue = statPoints;
         stats = new HashMap<Stats, Integer>();
         skills = new HashMap<Skills, Integer>();
-        x = 1;
-        y = 1;
+        x = 0;
+        y = 0;
         currentLocation = 0;
     }
 

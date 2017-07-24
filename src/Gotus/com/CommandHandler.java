@@ -2,6 +2,9 @@ package Gotus.com;
 
 import javax.swing.*;
 import java.nio.file.Watchable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -11,53 +14,18 @@ import java.util.Scanner;
  */
 public class CommandHandler{
 
-    public static PlayCharacter createCharacter(PlayCharacter newCharacter) {
+    private HashMap<String, Command> allCommands = new HashMap<String, Command>();
 
-        Scanner consoleInput = new Scanner(System.in);
-        System.out.println("Welcome to the Ultimate- world!");
-        System.out.println("Select your character name.");
-        newCharacter.setName(consoleInput.nextLine());
-
-        System.out.println("Now you can select your race from this list:");
-        for (Race r: Race.values()) {
-
-            System.out.println(r.toString());
-        }
-
-        boolean success = false;
-        while (!success) {
-
-            String raceName = consoleInput.nextLine();
-            for (Race r: Race.values()) {
-
-                if (raceName.equalsIgnoreCase(r.toString())) {
-
-                    newCharacter.setRace(r);
-                    success = true;
-                }
-            }
-
-            if (!success) {
-
-                System.out.println("Race named " + raceName + " does not exist. Choose another one.");
-            }
-        }
-
-        System.out.println("You successfully selected your race as " + newCharacter.getRace());
-
-        newCharacter.setCity();
-        System.out.println("Now you are in " + newCharacter.getCurrentCity());
-        //Here must be my code, but here digital nothing
-
-        return newCharacter;
+    CommandHandler()
+    {
+        allCommands.put("create character", new CharCreateCommand());
     }
-
-    public static void handleCommand(String command, PlayCharacter character, World world) {
+    public void handleCommand(String command, PlayCharacter character, World world) {
 
         switch (command) {
 
             case "create character":
-                createCharacter(character);
+                allCommands.get("create character").call(character, world);
                 break;
             case "quit":
                 world.setActive(false);
