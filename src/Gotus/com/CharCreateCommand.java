@@ -13,7 +13,8 @@ public class CharCreateCommand extends Command {
         this.description = "This command allows you to create character. Follow intructions after input this command.";
     }
 
-    public void call(PlayCharacter newCharacter, World world)
+    @Override
+    public void call(PlayCharacter newCharacter, World world, String... context)
     {
         Scanner consoleInput = new Scanner(System.in);
         System.out.println("Welcome to the Ultimate- world!");

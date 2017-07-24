@@ -11,7 +11,8 @@ public class QuitCommand  extends Command {
         this.description = "Input this command to exit the game";
     }
 
-    public void call(PlayCharacter character, World world) {
+    @Override
+    public void call(PlayCharacter character, World world, String... context) {
 
         world.setActive(false);
     }

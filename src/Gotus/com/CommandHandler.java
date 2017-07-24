@@ -18,61 +18,27 @@ public class CommandHandler{
 
     CommandHandler()
     {
-        allCommands.put("create character", new CharCreateCommand());
+        allCommands.put("create", new CharCreateCommand());
         allCommands.put("quit", new QuitCommand());
+        allCommands.put("move", new MoveCommand());
     }
 
 
     public void handleCommand(String command, PlayCharacter character, World world) {
 
-        switch (command) {
+        String[] commandParts = command.split(" ");
+        switch (commandParts[0]) {
 
-            case "create character":
-                allCommands.get(command).call(character, world);
+            case "create":
+                allCommands.get(commandParts[0]).call(character, world);
                 break;
             case "quit":
-                allCommands.get(command).call(character, world);
+                allCommands.get(commandParts[0]).call(character, world);
                 break;
-            case "move north":
-                if ((character.getY() > 0) && (character != null)){
+            case "move":
+                allCommands.get(commandParts[0]).call(character, world, commandParts);
+                break;
 
-                    character.setY(character.getY() - 1);
-                    character.setCurrentLocation(world.getWorldCells()[character.getX() + (character.getY() - 1) * world.getLength()]);
-                    System.out.println("Current x: " + character.getX());
-                    System.out.println("Current y: " + character.getY());
-                    System.out.println(character.getCurrentLocation());
-                }
-                break;
-            case "move south":
-                if ((character.getY() < world.getHeight()) && (character != null)) {
-
-                    character.setY(character.getY() + 1);
-                    character.setCurrentLocation(world.getWorldCells()[character.getX() + (character.getY() - 1) * world.getLength()]);
-                    System.out.println("Current x: " + character.getX());
-                    System.out.println("Current y: " + character.getY());
-                    System.out.println(character.getCurrentLocation());
-                }
-                break;
-            case "move west":
-                if ((character.getX() > 0) && (character != null)) {
-
-                    character.setX(character.getX() - 1);
-                    character.setCurrentLocation(world.getWorldCells()[character.getX() + (character.getY() - 1) * world.getLength()]);
-                    System.out.println("Current x: " + character.getX());
-                    System.out.println("Current y: " + character.getY());
-                    System.out.println(character.getCurrentLocation());
-                }
-                break;
-            case "move east":
-                if ((character.getX() < world.getLength() - 1) && (character != null)) {
-
-                    character.setX(character.getX() + 1);
-                    character.setCurrentLocation(world.getWorldCells()[character.getX() + (character.getY() - 1) * world.getLength()]);
-                    System.out.println("Current x: " + character.getX());
-                    System.out.println("Current y: " + character.getY());
-                    System.out.println(character.getCurrentLocation());
-                }
-                break;
         }
     }
 }

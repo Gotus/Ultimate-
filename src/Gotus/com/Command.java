@@ -18,5 +18,5 @@ public abstract class Command {
         return description;
     }
 
-    abstract void call(PlayCharacter newCharacter, World world);
+    abstract void call(PlayCharacter newCharacter, World world, String ...context);
 }
