@@ -19,16 +19,19 @@ public class CommandHandler{
     CommandHandler()
     {
         allCommands.put("create character", new CharCreateCommand());
+        allCommands.put("quit", new QuitCommand());
     }
+
+
     public void handleCommand(String command, PlayCharacter character, World world) {
 
         switch (command) {
 
             case "create character":
-                allCommands.get("create character").call(character, world);
+                allCommands.get(command).call(character, world);
                 break;
             case "quit":
-                world.setActive(false);
+                allCommands.get(command).call(character, world);
                 break;
             case "move north":
                 if ((character.getY() > 0) && (character != null)){
