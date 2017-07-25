@@ -18,6 +18,9 @@ public class MoveCommand extends Command{
 
             return;
         }
+
+        boolean moved = false;
+
         switch (direction[1]) {
 
             case "north":
@@ -25,13 +28,15 @@ public class MoveCommand extends Command{
 
                     character.setY(character.getY() - 1);
                     character.setCurrentLocation(world.getWorldCells()[character.getX() + (character.getY()) * world.getLength()]);
+                    moved = true;
                 }
                 break;
             case "south":
-                if ((character.getY() < world.getHeight()) && (character != null)) {
+                if ((character.getY() < (world.getHeight() - 1)) && (character != null)) {
 
                     character.setY(character.getY() + 1);
                     character.setCurrentLocation(world.getWorldCells()[character.getX() + (character.getY()) * world.getLength()]);
+                    moved = true;
                 }
                 break;
             case "west":
@@ -39,6 +44,7 @@ public class MoveCommand extends Command{
 
                     character.setX(character.getX() - 1);
                     character.setCurrentLocation(world.getWorldCells()[character.getX() + (character.getY()) * world.getLength()]);
+                    moved = true;
                 }
                 break;
             case "east":
@@ -46,11 +52,15 @@ public class MoveCommand extends Command{
 
                     character.setX(character.getX() + 1);
                     character.setCurrentLocation(world.getWorldCells()[character.getX() + (character.getY()) * world.getLength()]);
+                    moved = true;
                 }
                 break;
         }
         System.out.println("Current x: " + character.getX());
         System.out.println("Current y: " + character.getY());
         System.out.println(character.getCurrentLocation());
+        if ((Math.random() < 0.3) && (moved)) {
+            System.out.println("Battle begins!");
+        }
     }
 }
