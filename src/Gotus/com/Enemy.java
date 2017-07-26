@@ -44,4 +44,9 @@ public class Enemy {
         character.setHp(newHp);
     }
 
+    public String getName() {
+
+        return this.name;
+    }
+
 }

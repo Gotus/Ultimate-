@@ -1,6 +1,8 @@
 package Gotus.com;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -43,6 +45,7 @@ public class PlayCharacter {
     private int y;
     private int attack;
     private int hp;
+    private Enemy enemy;
 
     PlayCharacter() {
 
@@ -59,6 +62,8 @@ public class PlayCharacter {
         y = 0;
         currentLocation = 0;
         hp = 50;
+        enemy = null;
+        attack = 3;
     }
 
     public int increaseStat(Stats stat, int value) {
@@ -260,10 +265,21 @@ public class PlayCharacter {
         return this.hp;
     }
 
-    public void attack(Enemy enemy) {
+    public void attackEnemy(Enemy enemy) {
 
         int damage = this.attack;
         int newHp = enemy.getHp() - damage;
         enemy.setHp(newHp);
     }
+
+    public Enemy getEnemy() {
+
+        return  this.enemy;
+    }
+
+    public void setEnemy(Enemy enemy) {
+
+        this.enemy = enemy;
+    }
+
 }
