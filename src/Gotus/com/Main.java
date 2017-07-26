@@ -20,6 +20,11 @@ public class Main {
         PlayCharacter character = new PlayCharacter();
         World myWorld = new World();
         Scanner consoleInput = new Scanner(System.in);
+        final int numOfCommands = 3;
+        Command[] commands = new Command[numOfCommands];
+        commands[0] = new CharCreateCommand();
+        commands[1] = new QuitCommand();
+        commands[2] = new MoveCommand();
 
         myWorld.createWorldArray();
         //System.out.println(character.setName("Gotus"));
@@ -33,7 +38,7 @@ public class Main {
         //CharCreator.createCharacter(character);
         //myWorld.createWorldArray(Size.AVERAGE);
         //myWorld.createWorldArray();
-        CommandHandler commandHandler = new CommandHandler();
+        CommandHandler commandHandler = new CommandHandler(commands);
         while (myWorld.getActive()) {
 
             commandHandler.handleCommand(consoleInput.nextLine(), character, myWorld);

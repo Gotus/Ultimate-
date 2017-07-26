@@ -17,4 +17,31 @@ public class Enemy {
         this.attack = attack;
     }
 
+    public void setAttack(int value) {
+
+        this.attack = value;
+    }
+
+    public int getAttack(){
+
+        return this.attack;
+    }
+
+    public int getHp() {
+
+        return this.hp;
+    }
+
+    public void setHp(int value) {
+
+        this.hp = value;
+    }
+
+    public void attack(PlayCharacter character)
+    {
+        int damage = this.attack;
+        int newHp = character.getHp() - damage;
+        character.setHp(newHp);
+    }
+
 }

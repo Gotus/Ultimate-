@@ -9,7 +9,7 @@ public class CharCreateCommand extends Command {
 
     CharCreateCommand(){
 
-        this.commandName = "create character";
+        this.commandName = "create";
         this.description = "This command allows you to create character. Follow intructions after input this command.";
     }
 

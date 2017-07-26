@@ -16,11 +16,17 @@ public class CommandHandler{
 
     private HashMap<String, Command> allCommands = new HashMap<String, Command>();
 
-    CommandHandler()
+    CommandHandler(Command[] commands)
     {
-        allCommands.put("create", new CharCreateCommand());
-        allCommands.put("quit", new QuitCommand());
-        allCommands.put("move", new MoveCommand());
+        for (Command c: commands) {
+
+            allCommands.put(c.getCommandName(), c);
+        }
+    }
+
+    public void addCommand(Command newCommand) {
+
+        allCommands.put(newCommand.getCommandName(), newCommand);
     }
 
 

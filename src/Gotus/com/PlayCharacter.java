@@ -41,6 +41,8 @@ public class PlayCharacter {
     int currentLocation;
     private int x;
     private int y;
+    private int attack;
+    private int hp;
 
     PlayCharacter() {
 
@@ -56,6 +58,7 @@ public class PlayCharacter {
         x = 0;
         y = 0;
         currentLocation = 0;
+        hp = 50;
     }
 
     public int increaseStat(Stats stat, int value) {
@@ -245,5 +248,22 @@ public class PlayCharacter {
     public void setCurrentLocation(int value) {
 
         this.currentLocation = value;
+    }
+
+    public void setHp(int value) {
+
+        this.hp = value;
+    }
+
+    public int getHp() {
+
+        return this.hp;
+    }
+
+    public void attack(Enemy enemy) {
+
+        int damage = this.attack;
+        int newHp = enemy.getHp() - damage;
+        enemy.setHp(newHp);
     }
 }
