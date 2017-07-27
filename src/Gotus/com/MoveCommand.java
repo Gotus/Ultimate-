@@ -85,17 +85,22 @@ public class MoveCommand extends Command{
 
                 battleCommandHandler.handleCommand(command, character, world);
 
-                if ((character.getHp() <= 0)) {
-
-                    System.out.println("You have been defeated!");
-                    battleActive = false;
-                }
                 if (character.getEnemy().getHp() <= 0) {
 
                     System.out.println("Victory!");
                     battleActive = false;
+                    break;
                 }
 
+                if ((character.getHp() <= 0)) {
+
+                    System.out.println("You have been defeated!");
+                    battleActive = false;
+                    break;
+                }
+
+                newEnemy.attack(character);
+                System.out.println("Your hp: " + character.getHp());
             }
         }
     }
