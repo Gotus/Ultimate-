@@ -35,19 +35,7 @@ public class CommandHandler{
         String[] commandParts = command.split(" ");
         if (allCommands.containsKey(commandParts[0])) {
 
-            switch (commandParts[0]) {
-                case "create":
-                    allCommands.get(commandParts[0]).call(character, world);
-                    break;
-                case "quit":
-                    allCommands.get(commandParts[0]).call(character, world);
-                    break;
-                case "move":
-                    allCommands.get(commandParts[0]).call(character, world, commandParts);
-                    break;
-                case "attack":
-                    allCommands.get(commandParts[0]).call(character, world);
-            }
+            allCommands.get(commandParts[0]).call(character, world, commandParts);
         }
     }
 }
