@@ -5,16 +5,18 @@ package Gotus.com;
  */
 public class Enemy {
 
+    int number;
     String name;
     int hp;
     int attack;
 
-    Enemy(String name, int hp, int attack)
+    Enemy(String name, int hp, int attack, int number)
     {
 
         this.name = name;
         this.hp = hp;
         this.attack = attack;
+        this.number = number;
     }
 
     public void setAttack(int value) {
@@ -49,4 +51,13 @@ public class Enemy {
         return this.name;
     }
 
+    public int getNumber() {
+
+        return this.number;
+    }
+
+    public void setNumber(int number) {
+
+        this.number = number;
+    }
 }

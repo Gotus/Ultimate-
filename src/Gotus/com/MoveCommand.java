@@ -65,10 +65,14 @@ public class MoveCommand extends Command{
 
 
             System.out.println("Battle begins!");
-            boolean battleActive = true;
 
-            Enemy newEnemy = new Enemy("Goblin", 8, 3);
-            character.setEnemy(newEnemy);
+            character.setCurrentBattle(new Battle());
+
+            Enemy newEnemy = new Enemy("Goblin", 8, 3, 1);
+            character.getCurrentBattle().addEnemy(newEnemy);
+            newEnemy = new Enemy("Troll", 3, 2, 2);
+            character.getCurrentBattle().addEnemy(newEnemy);
+            //character.setEnemy(newEnemy);
 
             final int numOfBattleCommands = 1;
             Command[] battleCommands = new Command[numOfBattleCommands];
@@ -79,28 +83,31 @@ public class MoveCommand extends Command{
 
             Scanner consoleInput = new Scanner(System.in);
 
-            while (battleActive) {
+            while (!character.getCurrentBattle().getEnemies().isEmpty()) {
 
-                String command = consoleInput.next();
+                String command = consoleInput.nextLine();
 
                 battleCommandHandler.handleCommand(command, character, world);
+                character.getCurrentBattle().checkEnemy();
 
-                if (character.getEnemy().getHp() <= 0) {
+                if (character.getCurrentBattle().getEnemies().isEmpty()) {
 
                     System.out.println("Victory!");
-                    battleActive = false;
                     break;
+                }
+
+                for (Enemy e: character.getCurrentBattle().getEnemies()) {
+
+                    e.attack(character);
+                    System.out.println("Your hp: " + character.getHp());
                 }
 
                 if ((character.getHp() <= 0)) {
 
                     System.out.println("You have been defeated!");
-                    battleActive = false;
                     break;
                 }
 
-                newEnemy.attack(character);
-                System.out.println("Your hp: " + character.getHp());
             }
         }
     }

@@ -14,7 +14,17 @@ public class AttackCommand  extends Command{
     @Override
     public void call(PlayCharacter character, World world, String ...context) {
 
-        Enemy targetEnemy = character.getEnemy();
+        if (context.length < 3) {
+
+            return;
+        }
+
+        Enemy targetEnemy = character.getCurrentBattle().getEnemy(context[1], Integer.parseInt(context[2]));
+        if (targetEnemy == null) {
+
+            System.out.println("Ineffective");
+            return;
+        }
         character.attackEnemy(targetEnemy);
         System.out.println(targetEnemy.getName() + "'s hp: " + targetEnemy.getHp());
     }
