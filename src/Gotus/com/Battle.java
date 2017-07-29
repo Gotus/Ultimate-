@@ -31,16 +31,22 @@ public class Battle {
         return this.enemies;
     }
 
-    public Enemy getEnemy(String name, int number) {
+    public Enemy getEnemy(int index) {
 
-        for (Enemy e: this.enemies) {
 
-            if ((e.getName().equalsIgnoreCase(name)) && (e.getNumber() == number)) {
+        if (index < enemies.size()) {
 
-                return e;
-            }
+            return enemies.get(index);
         }
 
         return null;
+    }
+
+    public void printEnemies() {
+
+        for (int i = 0; i < enemies.size(); i++) {
+
+            System.out.println(i + 1 + " " + enemies.get(i).getName());
+        }
     }
 }

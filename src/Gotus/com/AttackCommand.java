@@ -14,12 +14,12 @@ public class AttackCommand  extends Command{
     @Override
     public void call(PlayCharacter character, World world, String ...context) {
 
-        if (context.length < 3) {
+        if (context.length < 2) {
 
             return;
         }
 
-        Enemy targetEnemy = character.getCurrentBattle().getEnemy(context[1], Integer.parseInt(context[2]));
+        Enemy targetEnemy = character.getCurrentBattle().getEnemy(Integer.parseInt(context[1]) - 1);
         if (targetEnemy == null) {
 
             System.out.println("Ineffective");

@@ -85,6 +85,8 @@ public class MoveCommand extends Command{
 
             while (!character.getCurrentBattle().getEnemies().isEmpty()) {
 
+                character.getCurrentBattle().printEnemies();
+
                 String command = consoleInput.nextLine();
 
                 battleCommandHandler.handleCommand(command, character, world);
