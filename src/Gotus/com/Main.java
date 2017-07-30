@@ -26,7 +26,7 @@ public class Main {
         commands[1] = new QuitCommand();
         commands[2] = new MoveCommand();
 
-        myWorld.createWorldArray();
+        myWorld.createLocationArray();
         //System.out.println(character.setName("Gotus"));
         //System.out.println(character.setRace(Race.ELF));
         //character.addSkill(Skills.POWERSTRIKE);

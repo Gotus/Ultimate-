@@ -54,7 +54,7 @@ public class World extends Location{
         return this.height;
     }
 
-    public void createWorldArray() {
+    public void createLocationArray() {
 
         cells = new int[length * height];
         for (int i = 0; i < cells.length; i++) {
@@ -90,6 +90,7 @@ public class World extends Location{
                 this.height = 100;
                 break;
         }
+        createLocationArray();
     }
 
     public int[] getWorldCells()
