@@ -11,12 +11,8 @@ enum Size{
     LARGE
 }
 
-public class World {
+public class World extends Location{
 
-    private String name;
-    private int length;
-    private int height;
-    private int[] worldCells;
     private boolean active;
 
     public World() {
@@ -67,6 +63,15 @@ public class World {
         }
     }
 
+
+    public void createLocationArray(int length, int height) {
+
+        worldCells = new int[length * height];
+        for (int i = 0; i < length; i++) {
+
+            worldCells[i] = i;
+        }
+    }
 
     public void createWorldArray(Size worldSize) {
 
