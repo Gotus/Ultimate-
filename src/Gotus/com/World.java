@@ -21,7 +21,7 @@ public class World extends Location{
         length = 10;
         height = 10;
         active = true;
-        worldCells = null;
+        cells = null;
     }
 
     public void setLength(int value) {
@@ -56,24 +56,24 @@ public class World extends Location{
 
     public void createWorldArray() {
 
-        worldCells = new int[length * height];
-        for (int i = 0; i < worldCells.length; i++) {
+        cells = new int[length * height];
+        for (int i = 0; i < cells.length; i++) {
 
-            worldCells[i] = i;
+            cells[i] = i;
         }
     }
 
 
     public void createLocationArray(int length, int height) {
 
-        worldCells = new int[length * height];
+        cells = new int[length * height];
         for (int i = 0; i < length; i++) {
 
-            worldCells[i] = i;
+            cells[i] = i;
         }
     }
 
-    public void createWorldArray(Size worldSize) {
+    public void createLocationArray(Size worldSize) {
 
         switch (worldSize) {
 
@@ -95,7 +95,7 @@ public class World extends Location{
     public int[] getWorldCells()
     {
 
-        return this.worldCells;
+        return this.cells;
     }
 
     public void setActive(boolean value) {

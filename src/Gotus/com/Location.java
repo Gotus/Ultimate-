@@ -8,7 +8,8 @@ public abstract class Location {
     protected String name;
     protected int length;
     protected int height;
-    protected int[] worldCells;
+    protected int[] cells;
 
     abstract void createLocationArray(int length, int height);
+    abstract void createLocationArray(Size size);
 }
