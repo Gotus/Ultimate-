@@ -1,4 +1,4 @@
-package Gotus.com;
+package com.ultimate;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
 

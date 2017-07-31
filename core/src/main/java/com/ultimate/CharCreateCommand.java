@@ -1,4 +1,4 @@
-package Gotus.com;
+package com.ultimate;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package Gotus.com;
+package com.ultimate;
 
 import javax.swing.*;
 import java.nio.file.Watchable;

@@ -1,4 +1,4 @@
-package Gotus.com;
+package com.ultimate;
 
 /**
  * Created by Gotus on 26.07.2017.

@@ -1,4 +1,4 @@
-package Gotus.com;
+package com.ultimate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class Battle {
 
-    private List<Enemy> enemies = new ArrayList<>();
+    private List<Enemy> enemies = new ArrayList<Enemy>();
 
     public void addEnemy(Enemy newEnemy) {
 
