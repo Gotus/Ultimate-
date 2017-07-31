@@ -1,13 +1,13 @@
-package com.ultimate;
+package com.ultimate.core;
 
 import java.util.Scanner;
 
 /**
  * Created by Gotus on 24.07.2017.
  */
-public class MoveCommand extends Command{
+public class MoveCommand extends Command {
 
-    MoveCommand() {
+    public MoveCommand() {
 
         this.commandName = "move";
         this.description = "Allows player move in selected direction. Valid options: north, south, west, east";

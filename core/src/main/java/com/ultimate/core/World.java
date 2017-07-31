@@ -1,4 +1,4 @@
-package com.ultimate;
+package com.ultimate.core;
 
 /**
  * Created by Gotus on 22.07.2017.
@@ -11,7 +11,8 @@ enum Size{
     LARGE
 }
 
-public class World extends Location{
+public class World extends Location {
+    ;
 
     private boolean active;
 

@@ -1,9 +1,9 @@
-package com.ultimate;
+package com.ultimate.core;
 
 /**
  * Created by Gotus on 26.07.2017.
  */
-public class AttackCommand  extends Command{
+public class AttackCommand  extends Command {
 
     AttackCommand() {
 

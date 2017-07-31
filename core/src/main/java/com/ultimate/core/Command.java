@@ -1,4 +1,4 @@
-package com.ultimate;
+package com.ultimate.core;
 
 /**
  * Created by Gotus on 24.07.2017.

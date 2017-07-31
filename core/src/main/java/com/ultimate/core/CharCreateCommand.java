@@ -1,4 +1,6 @@
-package com.ultimate;
+package com.ultimate.core;
+
+import com.ultimate.core.PlayCharacter;
 
 import java.util.Scanner;
 
@@ -7,7 +9,7 @@ import java.util.Scanner;
  */
 public class CharCreateCommand extends Command {
 
-    CharCreateCommand(){
+    public CharCreateCommand(){
 
         this.commandName = "create";
         this.description = "This command allows you to create character. Follow intructions after input this command.";
@@ -22,7 +24,7 @@ public class CharCreateCommand extends Command {
         newCharacter.setName(consoleInput.nextLine());
 
         System.out.println("Now you can select your race from this list:");
-        for (Race r: Race.values()) {
+        for (PlayCharacter.Race r: PlayCharacter.Race.values()) {
 
             System.out.println(r.toString());
         }
@@ -31,7 +33,7 @@ public class CharCreateCommand extends Command {
         while (!success) {
 
             String raceName = consoleInput.nextLine();
-            for (Race r: Race.values()) {
+            for (PlayCharacter.Race r: PlayCharacter.Race.values()) {
 
                 if (raceName.equalsIgnoreCase(r.toString())) {
 

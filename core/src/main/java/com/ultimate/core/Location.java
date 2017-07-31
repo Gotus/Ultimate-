@@ -1,4 +1,6 @@
-package com.ultimate;
+package com.ultimate.core;
+
+import com.ultimate.core.Size;
 
 /**
  * Created by Gotus on 30.07.2017.

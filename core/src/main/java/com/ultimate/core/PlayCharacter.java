@@ -1,36 +1,40 @@
-package com.ultimate;
+package com.ultimate.core;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
  * Created by Gotus on 19.07.2017.
  */
 
-enum Stats {
 
-    STRENGTH,
-    AGILITY,
-    INTELLIGENCE
-}
-
-enum Skills {
-
-    POWERSTRIKE,
-    POWERDRAW,
-    POWERTHROW
-}
-
-enum Cities {
-
-    MELMOND,
-    PRAVOKA
-}
 
 public class PlayCharacter {
+    public enum Stats {
 
+        STRENGTH,
+        AGILITY,
+        INTELLIGENCE
+    }
+
+    public enum Skills {
+
+        POWERSTRIKE,
+        POWERDRAW,
+        POWERTHROW
+    }
+
+    public enum Cities {
+
+        MELMOND,
+        PRAVOKA
+    }
+
+    public enum Race {
+
+        ELF,
+        HUMAN
+    }
     private Race race;
     private String name;
     private int skillPoints;
@@ -47,7 +51,7 @@ public class PlayCharacter {
     private int hp;
     private Battle currentBattle;
 
-    PlayCharacter() {
+    public PlayCharacter() {
 
         race = null;
         name = null;

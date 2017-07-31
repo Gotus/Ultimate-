@@ -1,11 +1,11 @@
-package com.ultimate;
+package com.ultimate.core;
 
 /**
  * Created by Gotus on 24.07.2017.
  */
 public class QuitCommand  extends Command {
 
-    QuitCommand() {
+    public QuitCommand() {
 
         this.commandName = "quit";
         this.description = "Input this command to exit the game";

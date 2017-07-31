@@ -1,12 +1,6 @@
-package com.ultimate;
+package com.ultimate.core;
 
-import javax.swing.*;
-import java.nio.file.Watchable;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
-
 
 
 /**
@@ -16,7 +10,7 @@ public class CommandHandler{
 
     private HashMap<String, Command> allCommands = new HashMap<String, Command>();
 
-    CommandHandler(Command[] commands)
+    public CommandHandler(Command[] commands)
     {
         for (Command c: commands) {
 

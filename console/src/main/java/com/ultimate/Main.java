@@ -1,22 +1,22 @@
-package com.ultimate;
+package com.ultimate; /**
+ * Created by Gotus on 31.07.2017.
+ */
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Map;
+
+import com.ultimate.core.*;
+
 import java.util.Scanner;
-
-enum Race {
-
-    HUMAN,
-    ELF
-}
 
 public class Main {
 
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+        try {
+            Class.forName("com.ultimate.core.Location");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         PlayCharacter character = new PlayCharacter();
         World myWorld = new World();
         Scanner consoleInput = new Scanner(System.in);
@@ -46,4 +46,3 @@ public class Main {
         }
     }
 }
-//test change
