@@ -38,6 +38,7 @@ public class Main {
         //CharCreator.createCharacter(character);
         //myWorld.createWorldArray(Size.AVERAGE);
         //myWorld.createWorldArray();
+        //test change
         CommandHandler commandHandler = new CommandHandler(commands);
         while (myWorld.getActive()) {
 
