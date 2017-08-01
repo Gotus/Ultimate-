@@ -34,7 +34,7 @@ public class WorldMapState implements IState{
         System.exit(0);
     }
 
-    public Pair<JSON, GameState> handleCommand(JSON commandJSON) {
+    public Pair<String, GameState> handleCommand(String commandJSON) {
 
         return null;
     }

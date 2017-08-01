@@ -6,7 +6,7 @@ import org.mortbay.util.ajax.JSON;
 
 public interface IState {
 
-    Pair<JSON, GameState> handleCommand(JSON commandJSON);
+    Pair<String, GameState> handleCommand(String commandJSON);
 
     GameState getState();
 
