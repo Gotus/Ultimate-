@@ -76,8 +76,7 @@ public class PlayCharacter {
 
     public void attackEnemy(Enemy enemy) {//TODO move to battle
 
-        int newHp = enemy.getHp() - damage;
-        enemy.setHp(newHp);
+        enemy.receiveDamage(damage);
     }
 
     public void setCurrentLocation(int x, int y) {

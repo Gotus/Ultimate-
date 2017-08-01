@@ -3,10 +3,10 @@ package com.ultimate.core.gameObjects;
 
 public class Enemy {
 
-    int id;
-    String name;
-    int hp;
-    int damage;
+    private int id;
+    private String name;
+    private int hp;
+    private int damage;
 
     public Enemy(String name, int hp, int damage, int id) {
 
@@ -56,5 +56,10 @@ public class Enemy {
     public void setId(int id) {
 
         this.id = id;
+    }
+
+    public void receiveDamage(int damage) {
+
+        this.setHp(this.getHp() - damage);
     }
 }
