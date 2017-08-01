@@ -1,4 +1,8 @@
-package com.ultimate.core;
+package com.ultimate.core.commands;
+
+import com.ultimate.core.gameObjects.Enemy;
+import com.ultimate.core.gameObjects.PlayCharacter;
+import com.ultimate.core.gameObjects.World;
 
 /**
  * Created by Gotus on 26.07.2017.
@@ -19,7 +23,7 @@ public class AttackCommand  extends Command {
             return;
         }
 
-        Enemy targetEnemy = character.getCurrentBattle().getEnemy(Integer.parseInt(context[1]) - 1);
+        /*Enemy targetEnemy = character.getCurrentBattle().getEnemy(Integer.parseInt(context[1]) - 1);
         if (targetEnemy == null) {
 
             System.out.println("Ineffective");
@@ -27,5 +31,6 @@ public class AttackCommand  extends Command {
         }
         character.attackEnemy(targetEnemy);
         System.out.println(targetEnemy.getName() + "'s hp: " + targetEnemy.getHp());
+        */
     }
 }

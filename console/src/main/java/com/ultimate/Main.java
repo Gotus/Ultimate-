@@ -4,7 +4,12 @@ package com.ultimate; /**
 
 
 
-import com.ultimate.core.*;
+import com.ultimate.core.commands.CharCreateCommand;
+import com.ultimate.core.commands.Command;
+import com.ultimate.core.commands.MoveCommand;
+import com.ultimate.core.commands.QuitCommand;
+import com.ultimate.core.gameObjects.PlayCharacter;
+import com.ultimate.core.gameObjects.World;
 
 import java.util.Scanner;
 
@@ -12,11 +17,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        try {
-            Class.forName("com.ultimate.core.Location");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+
         PlayCharacter character = new PlayCharacter();
         World myWorld = new World();
         Scanner consoleInput = new Scanner(System.in);
@@ -26,6 +27,7 @@ public class Main {
         commands[1] = new QuitCommand();
         commands[2] = new MoveCommand();
 
+        /*
         myWorld.createLocationArray();
         //System.out.println(character.setName("Gotus"));
         //System.out.println(character.setRace(Race.ELF));
@@ -44,5 +46,6 @@ public class Main {
 
             commandHandler.handleCommand(consoleInput.nextLine(), character, myWorld);
         }
+        */
     }
 }

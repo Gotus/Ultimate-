@@ -1,8 +1,9 @@
-package com.ultimate.core;
+package com.ultimate.core.commands;
 
-/**
- * Created by Gotus on 24.07.2017.
- */
+import com.ultimate.core.gameObjects.PlayCharacter;
+import com.ultimate.core.gameObjects.World;
+
+
 public class QuitCommand  extends Command {
 
     public QuitCommand() {
@@ -14,6 +15,6 @@ public class QuitCommand  extends Command {
     @Override
     public void call(PlayCharacter character, World world, String... context) {
 
-        world.setActive(false);
+        System.exit(0);
     }
 }

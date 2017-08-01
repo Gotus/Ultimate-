@@ -1,5 +1,9 @@
 package com.ultimate.core;
 
+import com.ultimate.core.commands.Command;
+import com.ultimate.core.gameObjects.PlayCharacter;
+import com.ultimate.core.gameObjects.World;
+
 import java.util.HashMap;
 
 

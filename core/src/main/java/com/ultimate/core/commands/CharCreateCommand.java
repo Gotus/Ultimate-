@@ -1,6 +1,7 @@
-package com.ultimate.core;
+package com.ultimate.core.commands;
 
-import com.ultimate.core.PlayCharacter;
+import com.ultimate.core.gameObjects.PlayCharacter;
+import com.ultimate.core.gameObjects.World;
 
 import java.util.Scanner;
 
@@ -50,9 +51,8 @@ public class CharCreateCommand extends Command {
 
         System.out.println("You successfully selected your race as " + newCharacter.getRace());
 
-        newCharacter.setCity();
-        System.out.println("Now you are in " + newCharacter.getCurrentCity());
-        //Here must be my code, but here digital nothing
+        //newCharacter.setCity();
+        //System.out.println("Now you are in " + newCharacter.getCurrentCity());
 
     }
 }

@@ -1,4 +1,10 @@
-package com.ultimate.core;
+package com.ultimate.core.commands;
+
+import com.ultimate.core.*;
+import com.ultimate.core.gameObjects.Battle;
+import com.ultimate.core.gameObjects.Enemy;
+import com.ultimate.core.gameObjects.PlayCharacter;
+import com.ultimate.core.gameObjects.World;
 
 import java.util.Scanner;
 
@@ -22,14 +28,14 @@ public class MoveCommand extends Command {
         }
 
         boolean moved = false;
-
+/*
         switch (direction[1]) {
 
             case "north":
                 if ((character.getY() > 0) && (character != null)){
 
                     character.setY(character.getY() - 1);
-                    character.setCurrentLocation(world.getWorldCells()[character.getX() + (character.getY()) * world.getLength()]);
+                    character.setCurrentLocation(world.getMap()[character.getX() + (character.getY()) * world.getLength()]);
                     moved = true;
                 }
                 break;
@@ -37,7 +43,7 @@ public class MoveCommand extends Command {
                 if ((character.getY() < (world.getHeight() - 1)) && (character != null)) {
 
                     character.setY(character.getY() + 1);
-                    character.setCurrentLocation(world.getWorldCells()[character.getX() + (character.getY()) * world.getLength()]);
+                    character.setCurrentLocation(world.getMap()[character.getX() + (character.getY()) * world.getLength()]);
                     moved = true;
                 }
                 break;
@@ -45,7 +51,7 @@ public class MoveCommand extends Command {
                 if ((character.getX() > 0) && (character != null)) {
 
                     character.setX(character.getX() - 1);
-                    character.setCurrentLocation(world.getWorldCells()[character.getX() + (character.getY()) * world.getLength()]);
+                    character.setCurrentLocation(world.getMap()[character.getX() + (character.getY()) * world.getLength()]);
                     moved = true;
                 }
                 break;
@@ -111,6 +117,6 @@ public class MoveCommand extends Command {
                 }
 
             }
-        }
+        }*/
     }
 }

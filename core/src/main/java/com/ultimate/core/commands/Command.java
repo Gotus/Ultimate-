@@ -1,8 +1,7 @@
-package com.ultimate.core;
+package com.ultimate.core.commands;
 
-/**
- * Created by Gotus on 24.07.2017.
- */
+import com.ultimate.core.gameObjects.PlayCharacter;
+import com.ultimate.core.gameObjects.World;
 
 public abstract class Command {
 
@@ -19,5 +18,5 @@ public abstract class Command {
         return description;
     }
 
-    abstract void call(PlayCharacter newCharacter, World world, String ...context);
+    public abstract void call(PlayCharacter newCharacter, World world, String ...context);
 }
