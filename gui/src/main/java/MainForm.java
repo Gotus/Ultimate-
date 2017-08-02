@@ -1,7 +1,9 @@
 import javax.swing.*;
+import com.ultimate.core.CurrentGame;
 
 public class MainForm extends JFrame {
     private JPanel mainPanel;
+    private CurrentGame currentGame;
 
     private MainForm(){
         setContentPane(mainPanel);
