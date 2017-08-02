@@ -39,7 +39,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>Main</mainClass>
+                            <mainClass>MainForm</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
