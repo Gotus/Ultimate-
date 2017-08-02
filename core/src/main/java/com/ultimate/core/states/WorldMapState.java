@@ -3,11 +3,8 @@ package com.ultimate.core.states;
 import com.ultimate.core.gameObjects.Map;
 import com.ultimate.core.gameObjects.PlayCharacter;
 import javafx.util.Pair;
-import org.mortbay.util.ajax.JSON;
 
-/**
- * Created by Gotus on 01.08.2017.
- */
+
 public class WorldMapState implements IState{
 
     Map map;

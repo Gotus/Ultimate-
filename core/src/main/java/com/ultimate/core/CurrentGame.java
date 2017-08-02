@@ -2,7 +2,6 @@ package com.ultimate.core;
 
 
 import com.ultimate.core.states.*;
-import org.mortbay.util.ajax.JSON;
 
 public class CurrentGame {
 
@@ -10,9 +9,9 @@ public class CurrentGame {
 
     GameData gameData;
 
-    JSON handleCommand(JSON commandJSON){
+    String handleCommand(String commandJSON){
         //TODO write a body
-        return new JSON();
+        return "";
     }
 
     GameState getCurrentState() {

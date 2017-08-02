@@ -8,9 +8,7 @@ import com.ultimate.core.gameObjects.World;
 
 import java.util.Scanner;
 
-/**
- * Created by Gotus on 24.07.2017.
- */
+
 public class MoveCommand extends Command {
 
     public MoveCommand() {

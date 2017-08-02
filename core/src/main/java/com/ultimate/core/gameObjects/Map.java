@@ -1,8 +1,6 @@
 package com.ultimate.core.gameObjects;
 
-/**
- * Created by Gotus on 31.07.2017.
- */
+
 public class Map {//TODO make abstract
     int width;
     int height;

@@ -4,9 +4,7 @@ import com.ultimate.core.gameObjects.Enemy;
 import com.ultimate.core.gameObjects.PlayCharacter;
 import com.ultimate.core.gameObjects.World;
 
-/**
- * Created by Gotus on 26.07.2017.
- */
+
 public class AttackCommand  extends Command {
 
     AttackCommand() {

@@ -7,9 +7,6 @@ import com.ultimate.core.gameObjects.World;
 import java.util.HashMap;
 
 
-/**
- * Created by Gotus on 20.07.2017.
- */
 public class CommandHandler{
 
     private HashMap<String, Command> allCommands = new HashMap<String, Command>();

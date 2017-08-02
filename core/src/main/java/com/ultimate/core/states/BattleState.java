@@ -3,14 +3,11 @@ package com.ultimate.core.states;
 import com.ultimate.core.gameObjects.Enemy;
 import com.ultimate.core.gameObjects.PlayCharacter;
 import javafx.util.Pair;
-import org.mortbay.util.ajax.JSON;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Gotus on 01.08.2017.
- */
+
 public class BattleState implements IState {
 
     List<Enemy> enemies;
