@@ -21,7 +21,7 @@ public class MainForm extends JFrame {
 
     private MainForm() {
 
-        mainScreen = new MainScreen();
+        mainScreen = new MainScreen(currentGame);
         mainScreen.setMinimumSize(new Dimension(ActionScreen.MIN_WIDTH + SubsidiaryScreen.WIDTH + 3 * BORDER_SIZE,
                 ActionScreen.MIN_HEIGHT + 2 * BORDER_SIZE));
         setContentPane(mainScreen);
