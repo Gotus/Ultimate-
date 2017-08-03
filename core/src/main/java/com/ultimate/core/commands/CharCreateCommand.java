@@ -18,15 +18,8 @@ public class CharCreateCommand extends Command {
     public void call(PlayCharacter newCharacter, World world, String... context)
     {
         Scanner consoleInput = new Scanner(System.in);
-        System.out.println("Welcome to the Ultimate- world!");
-        System.out.println("Select your character name.");
+
         newCharacter.setName(consoleInput.nextLine());
-
-        System.out.println("Now you can select your race from this list:");
-        for (PlayCharacter.Race r: PlayCharacter.Race.values()) {
-
-            System.out.println(r.toString());
-        }
 
         boolean success = false;
         while (!success) {
@@ -40,17 +33,11 @@ public class CharCreateCommand extends Command {
                     success = true;
                 }
             }
-
-            if (!success) {
-
-                System.out.println("Race named " + raceName + " does not exist. Choose another one.");
-            }
         }
 
-        System.out.println("You successfully selected your race as " + newCharacter.getRace());
 
         //newCharacter.setCity();
-        //System.out.println("Now you are in " + newCharacter.getCurrentCity());
+
 
     }
 }

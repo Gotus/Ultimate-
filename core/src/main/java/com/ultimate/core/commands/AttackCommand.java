@@ -24,11 +24,9 @@ public class AttackCommand  extends Command {
         /*Enemy targetEnemy = character.getCurrentBattle().getEnemy(Integer.parseInt(context[1]) - 1);
         if (targetEnemy == null) {
 
-            System.out.println("Ineffective");
             return;
         }
         character.attackEnemy(targetEnemy);
-        System.out.println(targetEnemy.getName() + "'s hp: " + targetEnemy.getHp());
         */
     }
 }
