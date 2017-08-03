@@ -14,6 +14,11 @@ public class MainForm extends JFrame {
     private CurrentGame currentGame;
     private MainScreen mainScreen;
 
+    private Timer timer = new Timer(50, e -> {
+        mainScreen.Animate();
+        mainScreen.repaint();
+    });
+
     private MainForm() {
 
         mainScreen = new MainScreen();
@@ -29,6 +34,7 @@ public class MainForm extends JFrame {
         setTitle("Ultimate");
         setLocationRelativeTo(null);
         setVisible(true);
+        timer.start();
     }
 
     public static void main(String[] args) {

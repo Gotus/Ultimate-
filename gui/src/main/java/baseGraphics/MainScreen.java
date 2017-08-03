@@ -13,6 +13,8 @@ public class MainScreen extends JPanel implements IAnimatable, IClickable{
     public ActionScreen actionScreen;
     public SubsidiaryScreen subsidiaryScreen;
 
+    private int animationState = 0;
+
     public MainScreen() {
         setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
         setBorder(new CompoundBorder(getBorder(),
@@ -39,10 +41,14 @@ public class MainScreen extends JPanel implements IAnimatable, IClickable{
         graphics.fillRect(0, 0, getWidth(), getHeight());
         graphics.setColor(Color.white);
         graphics.drawString(getClass().getName(), 4 ,14);
+        graphics.drawString((animationState < 10 ? "0" : "") + Integer.toString(animationState), 4 ,28);
+        graphics.drawString(animationState < 20 ? "tick" : "tack", 4 ,40);
     }
 
     @Override
     public void Animate() {
+        animationState++;
+        animationState %= 40;
         actionScreen.Animate();
         subsidiaryScreen.Animate();
     }
