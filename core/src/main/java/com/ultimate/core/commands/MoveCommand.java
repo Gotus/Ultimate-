@@ -62,13 +62,11 @@ public class MoveCommand extends Command {
                 }
                 break;
         }
-        System.out.println("Current x: " + character.getX());
-        System.out.println("Current y: " + character.getY());
-        System.out.println(character.getCurrentLocation());
+
         if ((Math.random() < 0.3) && (moved)) {
 
 
-            System.out.println("Battle begins!");
+
 
             character.setCurrentBattle(new Battle());
 
@@ -98,19 +96,19 @@ public class MoveCommand extends Command {
 
                 if (character.getCurrentBattle().getEnemies().isEmpty()) {
 
-                    System.out.println("Victory!");
+
                     break;
                 }
 
                 for (Enemy e: character.getCurrentBattle().getEnemies()) {
 
                     e.attack(character);
-                    System.out.println("Your hp: " + character.getHp());
+
                 }
 
                 if ((character.getHp() <= 0)) {
 
-                    System.out.println("You have been defeated!");
+
                     break;
                 }
 
