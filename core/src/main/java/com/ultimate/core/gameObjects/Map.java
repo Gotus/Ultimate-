@@ -24,6 +24,10 @@ public class Map {//TODO make abstract
         return this.height;
     }
 
+    public int[][] getCells() {
+        return cells;
+    }
+
     private void generateCells() {
         Random random = new Random();
         cells = new int[width][height];
