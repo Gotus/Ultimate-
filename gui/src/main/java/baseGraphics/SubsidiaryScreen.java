@@ -9,12 +9,12 @@ public class SubsidiaryScreen extends JPanel implements IAnimatable, IClickable 
     public static final int WIDTH = 200, MIN_HEIGHT = 300;
 
     @Override
-    public void Click(int x, int y) {
+    public void click(int x, int y) {
 
     }
 
     @Override
-    public void Animate() {
+    public void animate() {
 
     }
 

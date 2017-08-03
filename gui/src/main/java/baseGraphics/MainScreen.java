@@ -46,16 +46,16 @@ public class MainScreen extends JPanel implements IAnimatable, IClickable{
     }
 
     @Override
-    public void Animate() {
+    public void animate() {
         animationState++;
         animationState %= 40;
-        actionScreen.Animate();
-        subsidiaryScreen.Animate();
+        actionScreen.animate();
+        subsidiaryScreen.animate();
     }
 
     @Override
-    public void Click(int x, int y) {
-        actionScreen.Click(x - actionScreen.getX(), y - actionScreen.getY());
-        subsidiaryScreen.Click(x - subsidiaryScreen.getX(), y - subsidiaryScreen.getY());
+    public void click(int x, int y) {
+        actionScreen.click(x - actionScreen.getX(), y - actionScreen.getY());
+        subsidiaryScreen.click(x - subsidiaryScreen.getX(), y - subsidiaryScreen.getY());
     }
 }

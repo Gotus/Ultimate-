@@ -1,5 +1,5 @@
 package baseGraphics;
 
 public interface IAnimatable {
-    public void Animate();
+    public void animate();
 }

@@ -15,7 +15,7 @@ public class MainForm extends JFrame {
     private MainScreen mainScreen;
 
     private Timer timer = new Timer(50, e -> {
-        mainScreen.Animate();
+        mainScreen.animate();
         mainScreen.repaint();
     });
 
