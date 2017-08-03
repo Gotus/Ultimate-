@@ -19,11 +19,11 @@ public class CurrentGame {
         return "";
     }
 
-    public GameState getCurrentState() {
+    GameState getCurrentState() {
         return currentState.getState();
     }
 
-    public GameData getGameData() {
+    GameData getGameData() {
         return gameData;
     }
 }
