@@ -10,7 +10,7 @@ public class WorldMapState implements IState{
     Map map;
     PlayCharacter character;
 
-    WorldMapState(Map map, PlayCharacter character) {
+    public WorldMapState(Map map, PlayCharacter character) {
 
         this.map = map;
         this.character = character;
