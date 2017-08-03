@@ -9,7 +9,7 @@ public class CurrentGame {
 
     private GameData gameData;
 
-    CurrentGame() {
+    public CurrentGame() {
         gameData = new GameData();
         currentState = new WorldMapState(gameData.getWorld().getMap(), gameData.getPlayCharacter());
     }
