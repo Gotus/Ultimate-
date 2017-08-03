@@ -1,6 +1,8 @@
 package com.ultimate.core.gameObjects;
 
 
+import java.util.Random;
+
 public class Map {//TODO make abstract
     int width;
     int height;
@@ -23,7 +25,12 @@ public class Map {//TODO make abstract
     }
 
     private void generateCells() {
-
+        Random random = new Random();
         cells = new int[width][height];
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                cells[i][j] = random.nextInt() % 2;
+            }
+        }
     }
 }
