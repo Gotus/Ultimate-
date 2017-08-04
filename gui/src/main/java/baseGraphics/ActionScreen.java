@@ -18,9 +18,24 @@ public class ActionScreen extends JPanel implements IAnimatable, IClickable{
     GraphicsData graphicsData = new GraphicsData();
 
     private class AnimationData {
-        int moveIteration = 0;
-        int dx = 0, dy = 0;
-        final int moveStep = 6;
+        int mapMoveIteration = 0;
+        int mapDx = 0, mapDy = 0;
+        final int mapMoveStep = 6;
+
+        public void mapMove() {
+            mapMoveIteration++;
+            mapMoveIteration %= 40;
+            if (mapMoveIteration < 10) {
+                mapDx += mapMoveStep;
+            } else if (mapMoveIteration < 20) {
+                mapDy += mapMoveStep;
+            } else if (mapMoveIteration < 30) {
+                mapDx -= mapMoveStep;
+            } else if (mapMoveIteration < 40) {
+                mapDy -= mapMoveStep;
+            }
+        }
+
     }
     AnimationData animationData = new AnimationData();
 
@@ -35,17 +50,7 @@ public class ActionScreen extends JPanel implements IAnimatable, IClickable{
 
     @Override
     public void animate() {
-        animationData.moveIteration++;
-        animationData.moveIteration %= 40;
-        if (animationData.moveIteration < 10) {
-            animationData.dx += animationData.moveStep;
-        } else if (animationData.moveIteration < 20) {
-            animationData.dy += animationData.moveStep;
-        } else if (animationData.moveIteration < 30) {
-            animationData.dx -= animationData.moveStep;
-        } else if (animationData.moveIteration < 40) {
-            animationData.dy -= animationData.moveStep;
-        }
+        animationData.mapMove();
     }
 
     @Override
@@ -70,8 +75,8 @@ public class ActionScreen extends JPanel implements IAnimatable, IClickable{
                 }
 
                 graphics.fillRect(
-                        i * (graphicsData.cellSize + graphicsData.borderSize) + animationData.dx,
-                        j * (graphicsData.cellSize + graphicsData.borderSize) + animationData.dy,
+                        i * (graphicsData.cellSize + graphicsData.borderSize) + animationData.mapDx,
+                        j * (graphicsData.cellSize + graphicsData.borderSize) + animationData.mapDy,
                         graphicsData.cellSize, graphicsData.cellSize);
             }
         }
