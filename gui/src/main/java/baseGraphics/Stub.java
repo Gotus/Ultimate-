@@ -12,7 +12,7 @@ public final class Stub {
         map = new Map(width, height);
     }
 
-    public static int[][] getMapCells() {
-        return map.getCells();
+    public static Map getMap() {
+        return map;
     }
 }
