@@ -36,6 +36,8 @@ public class MainScreen extends JPanel implements IAnimatable, IClickable{
         add(actionScreen);
         add(Box.createRigidArea(new Dimension(BORDER_SIZE,0)));
         add(subsidiaryScreen);
+        
+        setDoubleBuffered(true);
     }
 
     @Override
