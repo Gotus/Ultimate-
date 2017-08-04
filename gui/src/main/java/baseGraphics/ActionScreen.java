@@ -12,6 +12,18 @@ public class ActionScreen extends JPanel implements IAnimatable, IClickable{
     public static final int MIN_WIDTH = 300, MIN_HEIGHT = 300;
     CurrentGame currentGame;
 
+    private class GraphicsData {
+        final int cellSize = 50, borderSize = 5;
+    }
+    GraphicsData graphicsData = new GraphicsData();
+
+    private class AnimationData {
+        int moveIteration = 0;
+        int dx = 0, dy = 0;
+        final int moveStep = 6;
+    }
+    AnimationData animationData = new AnimationData();
+
     public ActionScreen(CurrentGame currentGame) {
         this.currentGame = currentGame;
     }
@@ -23,7 +35,17 @@ public class ActionScreen extends JPanel implements IAnimatable, IClickable{
 
     @Override
     public void animate() {
-
+        animationData.moveIteration++;
+        animationData.moveIteration %= 40;
+        if (animationData.moveIteration < 10) {
+            animationData.dx += animationData.moveStep;
+        } else if (animationData.moveIteration < 20) {
+            animationData.dy += animationData.moveStep;
+        } else if (animationData.moveIteration < 30) {
+            animationData.dx -= animationData.moveStep;
+        } else if (animationData.moveIteration < 40) {
+            animationData.dy -= animationData.moveStep;
+        }
     }
 
     @Override
@@ -47,11 +69,10 @@ public class ActionScreen extends JPanel implements IAnimatable, IClickable{
                         graphics.setColor(Color.red);
                 }
 
-                int cellSize = 50, borderSize = 5;
-
-                graphics.fillRect(i * (cellSize + borderSize),
-                                  j * (cellSize + borderSize),
-                                  cellSize, cellSize);
+                graphics.fillRect(
+                        i * (graphicsData.cellSize + graphicsData.borderSize) + animationData.dx,
+                        j * (graphicsData.cellSize + graphicsData.borderSize) + animationData.dy,
+                        graphicsData.cellSize, graphicsData.cellSize);
             }
         }
         //
