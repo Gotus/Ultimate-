@@ -33,7 +33,7 @@ public class Map {//TODO make abstract
         cells = new int[width][height];
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                cells[i][j] = random.nextInt() % 2;
+                cells[i][j] = Math.abs(random.nextInt() % 2);
             }
         }
     }
