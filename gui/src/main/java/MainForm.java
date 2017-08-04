@@ -2,6 +2,7 @@ import javax.swing.*;
 
 import baseGraphics.ActionScreen;
 import baseGraphics.MainScreen;
+import baseGraphics.Stub;
 import baseGraphics.SubsidiaryScreen;
 import com.ultimate.core.CurrentGame;
 
@@ -20,6 +21,8 @@ public class MainForm extends JFrame {
     });
 
     private MainForm() {
+
+        Stub.generateMap(10,10);
 
         mainScreen = new MainScreen(currentGame);
         mainScreen.setMinimumSize(new Dimension(ActionScreen.MIN_WIDTH + SubsidiaryScreen.WIDTH + 3 * BORDER_SIZE,

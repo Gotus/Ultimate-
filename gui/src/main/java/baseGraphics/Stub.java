@@ -1,3 +1,5 @@
+package baseGraphics;
+
 import com.ultimate.core.gameObjects.Map;
 
 public final class Stub {

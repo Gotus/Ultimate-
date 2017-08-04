@@ -3,6 +3,7 @@ package baseGraphics;
 
 import com.ultimate.core.CurrentGame;
 
+import javax.rmi.CORBA.Stub;
 import javax.swing.*;
 import java.awt.*;
 
@@ -28,6 +29,11 @@ public class ActionScreen extends JPanel implements IAnimatable, IClickable{
     @Override
     public void paintComponent(Graphics g) {
         Graphics2D graphics = (Graphics2D)  g;
+
+        //BAD SECTION
+        int cells[][] = baseGraphics.Stub.getMapCells();
+        //
+        
         graphics.setColor(Color.white);
         graphics.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
         graphics.drawString(getClass().getName(), 4 ,14);
