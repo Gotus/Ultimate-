@@ -14,8 +14,11 @@ public class CurrentGame {
         currentState = new WorldMapState(gameData.getWorld().getMap(), gameData.getPlayCharacter());
     }
 
-    public String handleCommand(String commandJSON){
+    public String handleCommand(String command){
         //TODO write a body
+        String[] parsedCommand = command.split(" ");
+        currentState.handleCommand(parsedCommand);
+
         return "";
     }
 
@@ -23,7 +26,7 @@ public class CurrentGame {
         return currentState.getState();
     }
 
-    public GameData getGameData() {
+    public  GameData getGameData() {
         return gameData;
     }
 }
