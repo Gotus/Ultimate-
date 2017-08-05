@@ -43,7 +43,7 @@ public class MainScreen extends JPanel implements IAnimatable, IClickable{
 
         InputStream is = getClass().getResourceAsStream("/Alagard.ttf");
         Font font = Font.createFont(Font.TRUETYPE_FONT, is);
-        mainFont = font.deriveFont(12f);
+        mainFont = font.deriveFont(20f);
         
         setDoubleBuffered(true);
     }
@@ -57,10 +57,11 @@ public class MainScreen extends JPanel implements IAnimatable, IClickable{
 
         graphics.setColor(Color.white);
         graphics.setFont(mainFont);
-        graphics.drawString(getClass().getName(), 4 ,14);
+        float fontHeight = mainFont.getLineMetrics("I", graphics.getFontRenderContext()).getHeight();
+        graphics.drawString(getClass().getName(), 4 , fontHeight);
 
-        graphics.drawString((animationState < 10 ? "0" : "") + Integer.toString(animationState), 4 ,28);
-        graphics.drawString(animationState < 20 ? "tick" : "tack", 4 ,40);
+        graphics.drawString((animationState < 10 ? "0" : "") + Integer.toString(animationState), 4 , 2 * fontHeight);
+        graphics.drawString(animationState < 20 ? "tick" : "tack", 4 ,3 * fontHeight);
     }
 
     @Override
