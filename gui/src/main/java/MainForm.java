@@ -7,6 +7,7 @@ import baseGraphics.SubsidiaryScreen;
 import com.ultimate.core.CurrentGame;
 
 import java.awt.*;
+import java.io.IOException;
 
 import static baseGraphics.MainScreen.BORDER_SIZE;
 
@@ -20,7 +21,7 @@ public class MainForm extends JFrame {
         mainScreen.repaint();
     });
 
-    private MainForm() {
+    private MainForm() throws IOException, FontFormatException {
 
         Stub.generateMap(10,10);
 
@@ -40,7 +41,7 @@ public class MainForm extends JFrame {
         timer.start();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, FontFormatException {
         new MainForm();
     }
 }
