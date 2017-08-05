@@ -15,7 +15,12 @@ public class GameData {
         return world;
     }
 
-    PlayCharacter getPlayCharacter(){
+    public PlayCharacter getPlayCharacter(){
         return playCharacter;
+    }
+
+    public void setPlayCharacter(PlayCharacter newCharacter) {
+
+        playCharacter = newCharacter;
     }
 }

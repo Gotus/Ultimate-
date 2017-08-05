@@ -1,5 +1,7 @@
 package com.ultimate.core.commands;
 
+import com.ultimate.core.CurrentGame;
+import com.ultimate.core.GameData;
 import com.ultimate.core.gameObjects.PlayCharacter;
 import com.ultimate.core.gameObjects.World;
 
@@ -15,29 +17,26 @@ public class CharCreateCommand extends Command {
     }
 
     @Override
-    public void call(PlayCharacter newCharacter, World world, String... context)
+    public void call(CurrentGame currentGame, String... context)
     {
         Scanner consoleInput = new Scanner(System.in);
+        PlayCharacter character = currentGame.getGameData().getPlayCharacter();
 
-        newCharacter.setName(consoleInput.nextLine());
+        character.setName(consoleInput.nextLine());
 
         boolean success = false;
         while (!success) {
 
             String raceName = consoleInput.nextLine();
-            for (PlayCharacter.Race r: PlayCharacter.Race.values()) {
+            for (PlayCharacter.Race r : PlayCharacter.Race.values()) {
 
                 if (raceName.equalsIgnoreCase(r.toString())) {
 
-                    newCharacter.setRace(r);
+                    character.setRace(r);
                     success = true;
                 }
             }
         }
-
-
-        //newCharacter.setCity();
-
 
     }
 }

@@ -23,7 +23,7 @@ public class CurrentGame {
         return currentState.getState();
     }
 
-    GameData getGameData() {
+    public GameData getGameData() {
         return gameData;
     }
 }

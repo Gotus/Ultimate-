@@ -19,7 +19,7 @@ public class MoveCommand extends Command {
 
 
     @Override
-    public void call(PlayCharacter character, World world, String... direction) {
+    public void call(CurrentGame currentGame, String... direction) {
         if (direction.length == 1) {
 
             return;
