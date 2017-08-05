@@ -4,8 +4,12 @@ package baseGraphics;
 import com.ultimate.core.CurrentGame;
 import com.ultimate.core.gameObjects.Map;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class ActionScreen extends JPanel implements IAnimatable, IClickable{
 
@@ -13,7 +17,13 @@ public class ActionScreen extends JPanel implements IAnimatable, IClickable{
     CurrentGame currentGame;
 
     private class GraphicsData {
-        final int cellSize = 50, borderSize = 5;
+        final int cellSize = 64, borderSize = 5;
+        final BufferedImage sell0Image = ImageIO.read(getClass().getResourceAsStream("/cell0.png"));
+        final BufferedImage sell1Image = ImageIO.read(getClass().getResourceAsStream("/cell1.png"));
+        final BufferedImage sellErrorImage = ImageIO.read(getClass().getResourceAsStream("/cellE.png"));
+
+        private GraphicsData() throws IOException {
+        }
     }
     GraphicsData graphicsData = new GraphicsData();
 
@@ -39,7 +49,7 @@ public class ActionScreen extends JPanel implements IAnimatable, IClickable{
     }
     AnimationData animationData = new AnimationData();
 
-    public ActionScreen(CurrentGame currentGame) {
+    public ActionScreen(CurrentGame currentGame) throws IOException {
         this.currentGame = currentGame;
     }
 
@@ -62,22 +72,28 @@ public class ActionScreen extends JPanel implements IAnimatable, IClickable{
         int cells[][] = map.getCells();
         for (int i = 0; i < map.getWidth(); i++) {
             for (int j = 0; j < map.getHeight(); j++) {
-
+                BufferedImage cellImage;
                 switch (cells[i][j]) {
                     case 0:
-                        graphics.setColor(Color.blue);
+                        cellImage = graphicsData.sell0Image;
+                        //graphics.setColor(Color.blue);
                         break;
                     case 1:
-                        graphics.setColor(Color.green);
+                        cellImage = graphicsData.sell1Image;
+                        //graphics.setColor(Color.green);
                         break;
                     default:
-                        graphics.setColor(Color.red);
+                        cellImage = graphicsData.sellErrorImage;
+                        //graphics.setColor(Color.red);
                 }
 
-                graphics.fillRect(
-                        i * (graphicsData.cellSize + graphicsData.borderSize) + animationData.mapDx,
-                        j * (graphicsData.cellSize + graphicsData.borderSize) + animationData.mapDy,
-                        graphicsData.cellSize, graphicsData.cellSize);
+                int x1 = i * (graphicsData.cellSize + graphicsData.borderSize) + animationData.mapDx;
+                int y1 = j * (graphicsData.cellSize + graphicsData.borderSize) + animationData.mapDy;
+                graphics.drawImage(cellImage, x1, y1,
+                        graphicsData.cellSize, graphicsData.cellSize,
+                        null);
+
+                //graphics.fillRect(x1, y1, graphicsData.cellSize, graphicsData.cellSize);
             }
         }
         //
