@@ -25,12 +25,12 @@ public class CommandHandler{
     }
 
 
-    public void handleCommand(String command, PlayCharacter character, World world) {
+    public void handleCommand(String command, CurrentGame currentGame) {
 
         String[] commandParts = command.split(" ");
         if (allCommands.containsKey(commandParts[0])) {
 
-            allCommands.get(commandParts[0]).call(character, world, commandParts);
+            allCommands.get(commandParts[0]).call(currentGame, commandParts);
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.ultimate.core.commands;
 
+import com.ultimate.core.CurrentGame;
 import com.ultimate.core.gameObjects.Enemy;
 import com.ultimate.core.gameObjects.PlayCharacter;
 import com.ultimate.core.gameObjects.World;
@@ -14,7 +15,7 @@ public class AttackCommand  extends Command {
     }
 
     @Override
-    public void call(PlayCharacter character, World world, String ...context) {
+    public void call(CurrentGame currentGame, String ...context) {
 
         if (context.length < 2) {
 

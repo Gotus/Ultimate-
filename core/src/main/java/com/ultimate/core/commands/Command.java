@@ -1,5 +1,7 @@
 package com.ultimate.core.commands;
 
+import com.ultimate.core.CurrentGame;
+import com.ultimate.core.GameData;
 import com.ultimate.core.gameObjects.PlayCharacter;
 import com.ultimate.core.gameObjects.World;
 
@@ -18,5 +20,5 @@ public abstract class Command {
         return description;
     }
 
-    public abstract void call(PlayCharacter newCharacter, World world, String ...context);
+    public abstract void call(CurrentGame currentGame, String ...context);
 }

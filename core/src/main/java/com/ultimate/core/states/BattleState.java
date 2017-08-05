@@ -36,8 +36,9 @@ public class BattleState implements IState {
         System.exit(0);
     }
 
-    public Pair<String, GameState> handleCommand(String commandJSON) {
+    public Pair<String, GameState> handleCommand(String command) {
 
+        //String
         return null;
     }
 }
