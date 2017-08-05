@@ -7,18 +7,22 @@ import javax.swing.*;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class MainScreen extends JPanel implements IAnimatable, IClickable{
 
     public static final int BORDER_SIZE = 50;
     CurrentGame currentGame;
 
+    Font mainFont;
+
     public ActionScreen actionScreen;
     public SubsidiaryScreen subsidiaryScreen;
 
     private int animationState = 0;
 
-    public MainScreen(CurrentGame currentGame) {
+    public MainScreen(CurrentGame currentGame) throws IOException, FontFormatException {
         this.currentGame = currentGame;
         setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
         setBorder(new CompoundBorder(getBorder(),
@@ -36,6 +40,10 @@ public class MainScreen extends JPanel implements IAnimatable, IClickable{
         add(actionScreen);
         add(Box.createRigidArea(new Dimension(BORDER_SIZE,0)));
         add(subsidiaryScreen);
+
+        InputStream is = getClass().getResourceAsStream("/Alagard.ttf");
+        Font font = Font.createFont(Font.TRUETYPE_FONT, is);
+        mainFont = font.deriveFont(20f);
         
         setDoubleBuffered(true);
     }
@@ -43,12 +51,17 @@ public class MainScreen extends JPanel implements IAnimatable, IClickable{
     @Override
     public void paintComponent(Graphics g) {
         Graphics2D graphics = (Graphics2D)  g;
+
         graphics.setColor(Color.black);
         graphics.fillRect(0, 0, getWidth(), getHeight());
+
         graphics.setColor(Color.white);
-        graphics.drawString(getClass().getName(), 4 ,14);
-        graphics.drawString((animationState < 10 ? "0" : "") + Integer.toString(animationState), 4 ,28);
-        graphics.drawString(animationState < 20 ? "tick" : "tack", 4 ,40);
+        graphics.setFont(mainFont);
+        float fontHeight = mainFont.getLineMetrics("I", graphics.getFontRenderContext()).getHeight();
+        graphics.drawString(getClass().getName(), 4 , fontHeight);
+
+        graphics.drawString((animationState < 10 ? "0" : "") + Integer.toString(animationState), 4 , 2 * fontHeight);
+        graphics.drawString(animationState < 20 ? "tick" : "tack", 4 ,3 * fontHeight);
     }
 
     @Override
