@@ -2,6 +2,7 @@ package com.ultimate.core;
 
 
 import com.ultimate.core.states.*;
+import javafx.util.Pair;
 
 public class CurrentGame {
 
@@ -17,9 +18,10 @@ public class CurrentGame {
     public String handleCommand(String command){
         //TODO write a body
         String[] parsedCommand = command.split(" ");
-        currentState.handleCommand(parsedCommand);
+        Pair<String, GameState> commandResult = new Pair<String, GameState>(currentState.handleCommand(parsedCommand).getKey(),
+                currentState.handleCommand(parsedCommand).getValue());
 
-        return "";
+        return commandResult.getKey();
     }
 
     GameState getCurrentState() {
