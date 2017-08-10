@@ -1,9 +1,6 @@
 package com.ultimate.core.commands;
 
 import com.ultimate.core.CurrentGame;
-import com.ultimate.core.gameObjects.Enemy;
-import com.ultimate.core.gameObjects.PlayCharacter;
-import com.ultimate.core.gameObjects.World;
 
 
 public class AttackCommand  extends Command {

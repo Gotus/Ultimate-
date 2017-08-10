@@ -1,12 +1,6 @@
 package com.ultimate.core.commands;
 
 import com.ultimate.core.*;
-import com.ultimate.core.gameObjects.Battle;
-import com.ultimate.core.gameObjects.Enemy;
-import com.ultimate.core.gameObjects.PlayCharacter;
-import com.ultimate.core.gameObjects.World;
-
-import java.util.Scanner;
 
 
 public class MoveCommand extends Command {
