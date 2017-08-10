@@ -2,13 +2,6 @@ package com.ultimate.core.gameObjects;
 
 import java.util.Random;
 
-enum LocationSize {
-
-    SMALL,
-    AVERAGE,
-    LARGE
-}
-
 public class Location {
 
     private String name;
