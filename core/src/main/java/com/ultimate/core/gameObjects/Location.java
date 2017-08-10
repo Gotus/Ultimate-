@@ -11,10 +11,10 @@ public class Location {
         int height;
         MapCell[][] cells;
 
-        public Map(int width, int height){
+        public Map(int width, int height, LocationType locationType){
             this.width = width;
             this.height = height;
-            generateCells();
+            generateCells(locationType);
         }
 
         public int getWidth() {
@@ -31,23 +31,12 @@ public class Location {
             return cells;
         }
 
-        private void generateCells() {
-            Random random = new Random();
-            cells = new MapCell[width][height];
-            for (int i = 0; i < width; i++) {
-                for (int j = 0; j < height; j++) {
-                    cells[i][j] = MapCell.getRandomPassable();
-                }
-            }
+        private void generateCells(LocationType locationType) {
+            //TODO PAIN
         }
     }
 
     Map map;
-
-    public Location() {
-
-        this(LocationSize.SMALL);
-    }
 
     public void setName(String name) {
 
@@ -59,26 +48,26 @@ public class Location {
         return this.name;
     }
 
-    public Location(int width, int height) {
+    public Location(int width, int height, LocationType locationType) {
 
-        map = new Map(width, height);
+        map = new Map(width, height, locationType);
     }
 
-    public Location(LocationSize worldLocationSize) {
+    public Location(LocationSize worldLocationSize, LocationType locationType) {
 
         switch (worldLocationSize) {
 
             case SMALL:
-                map = new Map(10, 10);
+                map = new Map(10, 10, locationType);
                 break;
             case AVERAGE:
-                map = new Map(30, 30);
+                map = new Map(30, 30, locationType);
                 break;
             case LARGE:
-                map = new Map(100, 100);
+                map = new Map(100, 100, locationType);
                 break;
             default:
-                map = new Map(10, 10);
+                map = new Map(10, 10, locationType);
         }
     }
 
