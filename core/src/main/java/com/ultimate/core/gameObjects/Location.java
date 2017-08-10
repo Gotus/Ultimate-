@@ -6,10 +6,10 @@ public class Location {
 
     private String name;
 
-    private class Map {//TODO make abstract
+    private class Map {
         int width;
         int height;
-        int[][] cells;//TODO int is not good
+        MapCell[][] cells;
 
         public Map(int width, int height){
             this.width = width;
@@ -27,16 +27,16 @@ public class Location {
             return this.height;
         }
 
-        public int[][] getCells() {
+        public MapCell[][] getCells() {
             return cells;
         }
 
         private void generateCells() {
             Random random = new Random();
-            cells = new int[width][height];
+            cells = new MapCell[width][height];
             for (int i = 0; i < width; i++) {
                 for (int j = 0; j < height; j++) {
-                    cells[i][j] = Math.abs(random.nextInt() % 2);
+                    cells[i][j] = MapCell.getRandomPassable();
                 }
             }
         }
