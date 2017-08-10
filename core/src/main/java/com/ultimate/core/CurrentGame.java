@@ -2,6 +2,7 @@ package com.ultimate.core;
 
 
 import com.ultimate.core.states.*;
+import javafx.util.Pair;
 
 public class CurrentGame {
 
@@ -14,16 +15,20 @@ public class CurrentGame {
         currentState = new WorldMapState(gameData.getWorld().getMap(), gameData.getPlayCharacter());
     }
 
-    public String handleCommand(String commandJSON){
+    public String handleCommand(String command){
         //TODO write a body
-        return "";
+        String[] parsedCommand = command.split(" ");
+        Pair<String, GameState> commandResult = new Pair<String, GameState>(currentState.handleCommand(parsedCommand).getKey(),
+                currentState.handleCommand(parsedCommand).getValue());
+
+        return commandResult.getKey();
     }
 
     GameState getCurrentState() {
         return currentState.getState();
     }
 
-    public GameData getGameData() {
+    public  GameData getGameData() {
         return gameData;
     }
 }

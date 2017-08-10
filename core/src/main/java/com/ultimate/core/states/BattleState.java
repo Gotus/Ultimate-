@@ -13,6 +13,7 @@ public class BattleState implements IState {
     List<Enemy> enemies;
     PlayCharacter character;
 
+
     public BattleState(ArrayList<Enemy> enemies, PlayCharacter character) {
 
         this.enemies = enemies;
@@ -36,9 +37,10 @@ public class BattleState implements IState {
         System.exit(0);
     }
 
-    public Pair<String, GameState> handleCommand(String command) {
+    public Pair<String, GameState> handleCommand(String... command) {
 
         //String
+
         return null;
     }
 }
