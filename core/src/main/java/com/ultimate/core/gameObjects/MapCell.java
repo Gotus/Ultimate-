@@ -1,6 +1,10 @@
 package com.ultimate.core.gameObjects;
 
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Random;
+
 public enum MapCell {
     PLAIN,
     FOREST,
@@ -9,22 +13,16 @@ public enum MapCell {
     MOUNTAIN,
     WATER;
 
-    private boolean isPassable;
+    private static HashSet<MapCell> passable = new HashSet<>(
+            Arrays.asList(PLAIN, FOREST, DESERT, ICE));
 
-    static {
-        PLAIN.isPassable = true;
-        FOREST.isPassable = true;
-        DESERT.isPassable = true;
-        ICE.isPassable = true;
-        MOUNTAIN.isPassable = false;
-        WATER.isPassable =false;
-    }
+    private static Random random = new Random();
 
     public boolean isPassable() {
-        return isPassable;
+        return passable.contains(this);
     }
 
     public static MapCell getRandomPassable() {
-        return PLAIN;//TODO obliviously fix
+        return (MapCell) passable.toArray()[random.nextInt(passable.size())];
     }
 }
