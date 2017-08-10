@@ -2,14 +2,14 @@ package com.ultimate.core.gameObjects;
 
 import java.util.Random;
 
-enum WorldSize {
+enum LocationSize {
 
     SMALL,
     AVERAGE,
     LARGE
 }
 
-public class World {
+public class Location {
 
     private String name;
 
@@ -51,9 +51,9 @@ public class World {
 
     Map map;
 
-    public World() {
+    public Location() {
 
-        this(WorldSize.SMALL);
+        this(LocationSize.SMALL);
     }
 
     public void setName(String name) {
@@ -66,14 +66,14 @@ public class World {
         return this.name;
     }
 
-    public World(int width, int height) {
+    public Location(int width, int height) {
 
         map = new Map(width, height);
     }
 
-    public World(WorldSize worldWorldSize) {
+    public Location(LocationSize worldLocationSize) {
 
-        switch (worldWorldSize) {
+        switch (worldLocationSize) {
 
             case SMALL:
                 map = new Map(10, 10);

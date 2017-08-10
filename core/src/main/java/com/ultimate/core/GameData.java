@@ -5,14 +5,14 @@ import com.ultimate.core.gameObjects.*;
 
 public class GameData {
     PlayCharacter playCharacter;
-    World world;
+    Location location;
 
     public GameData() {
-        world = new World();
+        location = new Location();
     }
 
-    public World getWorld() {
-        return world;
+    public Location getLocation() {
+        return location;
     }
 
     public PlayCharacter getPlayCharacter(){

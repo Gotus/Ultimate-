@@ -1,18 +1,18 @@
 package com.ultimate.core.states;
 
-import com.ultimate.core.gameObjects.Map;
+import com.ultimate.core.gameObjects.Location;
 import com.ultimate.core.gameObjects.PlayCharacter;
 import javafx.util.Pair;
 
 
-public class WorldMapState implements IState{
+public class LocationState implements IState{
 
-    Map map;
+    Location location;
     PlayCharacter character;
 
-    public WorldMapState(Map map, PlayCharacter character) {
+    public LocationState(Location location, PlayCharacter character) {
 
-        this.map = map;
+        this.location = location;
         this.character = character;
     }
 

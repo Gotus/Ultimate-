@@ -12,7 +12,7 @@ public class CurrentGame {
 
     public CurrentGame() {
         gameData = new GameData();
-        currentState = new WorldMapState(gameData.getWorld().getMap(), gameData.getPlayCharacter());
+        currentState = new LocationState(gameData.getLocation().getMap(), gameData.getPlayCharacter());
     }
 
     public String handleCommand(String command){
