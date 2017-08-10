@@ -1,6 +1,8 @@
 package com.ultimate.core.gameObjects;
 
-import java.util.Random;
+import javafx.util.Pair;
+
+import java.util.HashMap;
 
 public class Location {
 
@@ -38,6 +40,27 @@ public class Location {
 
     Map map;
 
+    static private HashMap<Pair<LocationType, LocationSize>, Integer> sizes = new HashMap<>();
+
+    static {
+        sizes.put(new Pair<>(LocationType.WORLD, LocationSize.SMALL), 10);
+        sizes.put(new Pair<>(LocationType.WORLD, LocationSize.AVERAGE), 30);
+        sizes.put(new Pair<>(LocationType.WORLD, LocationSize.LARGE), 100);
+
+        sizes.put(new Pair<>(LocationType.TOWN, LocationSize.SMALL), 10);
+        sizes.put(new Pair<>(LocationType.TOWN, LocationSize.AVERAGE), 10);
+        sizes.put(new Pair<>(LocationType.TOWN, LocationSize.LARGE), 10);
+
+        sizes.put(new Pair<>(LocationType.CAVERN, LocationSize.SMALL), 10);
+        sizes.put(new Pair<>(LocationType.CAVERN, LocationSize.AVERAGE), 10);
+        sizes.put(new Pair<>(LocationType.CAVERN, LocationSize.LARGE), 10);
+    }
+
+    private static int getSizeInCells(LocationType locationType, LocationSize locationSize) {
+
+        return sizes.get(new Pair<>(locationType, locationSize));
+    }
+
     public void setName(String name) {
 
         this.name = new String(name);
@@ -53,26 +76,13 @@ public class Location {
         map = new Map(width, height, locationType);
     }
 
-    public Location(LocationSize worldLocationSize, LocationType locationType) {
+    public Location(LocationSize locationSize, LocationType locationType) {
 
-        switch (worldLocationSize) {
-
-            case SMALL:
-                map = new Map(10, 10, locationType);
-                break;
-            case AVERAGE:
-                map = new Map(30, 30, locationType);
-                break;
-            case LARGE:
-                map = new Map(100, 100, locationType);
-                break;
-            default:
-                map = new Map(10, 10, locationType);
-        }
+        int size = getSizeInCells(locationType, locationSize);
+        map = new Map(size, size, locationType);
     }
 
-    public Map getMap()
-    {
+    public Map getMap() {
 
         return map;
     }
