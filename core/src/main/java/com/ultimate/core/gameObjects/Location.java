@@ -3,20 +3,64 @@ package com.ultimate.core.gameObjects;
 import javafx.util.Pair;
 
 import java.util.HashMap;
+import java.util.Random;
 
 public class Location {
 
     private String name;
 
     private class Map {
+
         int width;
         int height;
         MapCell[][] cells;
 
+        private class MapNode {
+
+            int x, y;
+            LocationType locationType;
+            Pair<Location, MapNode> linkedNode;
+
+            MapNode(int x, int y, LocationType locationType) {
+                this.x = x;
+                this.y = y;
+                this.locationType = locationType;
+            }
+        }
+
+        MapNode[] mapNodes;
+
+        private class MapEdge {
+
+            MapNode from, to;
+            LocationType locationType;
+
+            MapEdge(MapNode from, MapNode to) {
+                this.from = from;
+                this.to = to;
+                locationType = (new Random().nextBoolean()) ? from.locationType : to.locationType;
+            }
+        }
+
+        MapEdge[] mapEdges;
+
+        private class JumpToAnotherLocation {
+
+            MapNode from;
+            Pair<Location, MapNode> to;
+
+            JumpToAnotherLocation(MapNode from, Pair<Location, MapNode> to) {
+                this.from = from;
+                this.to = to;
+            }
+        }
+
+        JumpToAnotherLocation[] jumpsToAnotherLocations;
+
         public Map(int width, int height, LocationType locationType){
             this.width = width;
             this.height = height;
-            generateCells(locationType);
+            generate(locationType);
         }
 
         public int getWidth() {
@@ -31,10 +75,6 @@ public class Location {
 
         public MapCell[][] getCells() {
             return cells;
-        }
-
-        private void generateCells(LocationType locationType) {
-            //TODO PAIN
         }
     }
 
@@ -85,5 +125,20 @@ public class Location {
     public Map getMap() {
 
         return map;
+    }
+
+    private void generate(LocationType locationType) {
+
+        switch (locationType) {
+            case WORLD:
+                WorldMapGenerator.generate(this);
+                break;
+            case TOWN:
+                //TODO similarly
+                break;
+            case CAVERN:
+                //TODO similarly
+                break;
+        }
     }
 }
