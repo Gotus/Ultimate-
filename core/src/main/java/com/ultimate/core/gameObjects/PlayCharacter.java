@@ -79,6 +79,15 @@ public class PlayCharacter {
         enemy.receiveDamage(damage);
     }
 
+    public String getName() {
+
+        return name;
+    }
+
+    public int getDamage() {
+
+        return damage;
+    }
     public void setCurrentLocation(int x, int y) {
 
 
