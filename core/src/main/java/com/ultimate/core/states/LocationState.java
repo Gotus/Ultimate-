@@ -61,9 +61,13 @@ public class LocationState implements IState{
                 return new Pair<>("Battle begins!", GameState.BATTLE_STATE);
             }
 
-            return new Pair<>("Battle begins!", GameState.WORLD_MAP_STATE);
+            return new Pair<>("Moved successfully!", GameState.WORLD_MAP_STATE);
         }
 
+        if (command[0].equalsIgnoreCase("quit")) {
+
+            System.exit(0);
+        }
         return null;
     }
 

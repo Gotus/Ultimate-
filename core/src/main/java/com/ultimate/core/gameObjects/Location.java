@@ -92,12 +92,12 @@ public class Location {
         sizes.put(new Pair<>(LocationType.WORLD, LocationSize.LARGE), 100);
 
         sizes.put(new Pair<>(LocationType.TOWN, LocationSize.SMALL), 10);
-        sizes.put(new Pair<>(LocationType.TOWN, LocationSize.AVERAGE), 10);
-        sizes.put(new Pair<>(LocationType.TOWN, LocationSize.LARGE), 10);
+        sizes.put(new Pair<>(LocationType.TOWN, LocationSize.AVERAGE), 30);
+        sizes.put(new Pair<>(LocationType.TOWN, LocationSize.LARGE), 100);
 
         sizes.put(new Pair<>(LocationType.CAVERN, LocationSize.SMALL), 10);
-        sizes.put(new Pair<>(LocationType.CAVERN, LocationSize.AVERAGE), 10);
-        sizes.put(new Pair<>(LocationType.CAVERN, LocationSize.LARGE), 10);
+        sizes.put(new Pair<>(LocationType.CAVERN, LocationSize.AVERAGE), 30);
+        sizes.put(new Pair<>(LocationType.CAVERN, LocationSize.LARGE), 100);
     }
 
     private static int getSizeInCells(LocationType locationType, LocationSize locationSize) {
