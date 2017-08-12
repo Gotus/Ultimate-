@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 
-public enum MapCell {
+public enum TerrainType {
     PLAIN,
     FOREST,
     DESERT,
@@ -13,7 +13,7 @@ public enum MapCell {
     MOUNTAIN,
     WATER;
 
-    private static HashSet<MapCell> passable = new HashSet<>(
+    private static HashSet<TerrainType> passable = new HashSet<>(
             Arrays.asList(PLAIN, FOREST, DESERT, ICE));
 
     private static Random random = new Random();
@@ -22,7 +22,7 @@ public enum MapCell {
         return passable.contains(this);
     }
 
-    public static MapCell getRandomPassable() {
-        return (MapCell) passable.toArray()[random.nextInt(passable.size())];
+    public static TerrainType getRandomPassable() {
+        return (TerrainType) passable.toArray()[random.nextInt(passable.size())];
     }
 }
