@@ -76,10 +76,6 @@ public class Location {
         public MapCell[][] getCells() {
             return cells;
         }
-
-        private void generate(LocationType locationType) {
-            //TODO PAIN
-        }
     }
 
     Map map;
@@ -129,5 +125,20 @@ public class Location {
     public Map getMap() {
 
         return map;
+    }
+
+    private void generate(LocationType locationType) {
+
+        switch (locationType) {
+            case WORLD:
+                WorldMapGenerator.generate(this);
+                break;
+            case TOWN:
+                //TODO similarly
+                break;
+            case CAVERN:
+                //TODO similarly
+                break;
+        }
     }
 }
