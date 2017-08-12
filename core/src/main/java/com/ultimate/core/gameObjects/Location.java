@@ -13,7 +13,7 @@ public class Location {
 
         int width;
         int height;
-        MapCell[][] cells;
+        TerrainType[][] cells;
 
         private class MapNode {
 
@@ -73,12 +73,18 @@ public class Location {
             return this.height;
         }
 
-        public MapCell[][] getCells() {
+        public TerrainType[][] getCells() {
             return cells;
         }
 
         private void generate(LocationType locationType) {
-            //TODO PAIN
+            //TODO generate nodes
+            //TODO generate edges
+            //TODO set terrain type to nodes
+            //TODO set terrain type to cells
+            //TODO generate mountains and reservoirs
+            //TODO set terrain type and movingType to edges
+            //TODO other staff later
         }
     }
 
