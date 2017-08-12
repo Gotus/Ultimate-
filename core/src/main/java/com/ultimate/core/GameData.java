@@ -7,8 +7,8 @@ public class GameData {
     PlayCharacter playCharacter;
     Location location;
 
-    public GameData() {
-        location = new Location();
+    public GameData(LocationSize locationSize, LocationType locationType) {
+        location = new Location(locationSize, locationType);
     }
 
     public Location getLocation() {

@@ -1,6 +1,9 @@
 package com.ultimate.core;
 
 
+import com.ultimate.core.gameObjects.Location;
+import com.ultimate.core.gameObjects.LocationSize;
+import com.ultimate.core.gameObjects.LocationType;
 import com.ultimate.core.states.*;
 import javafx.util.Pair;
 
@@ -11,7 +14,7 @@ public class CurrentGame {
     private GameData gameData;
 
     public CurrentGame() {
-        gameData = new GameData();
+        gameData = new GameData(LocationSize.SMALL, LocationType.WORLD);
         currentState = new LocationState(gameData.getLocation(), gameData.getPlayCharacter());
     }
 
