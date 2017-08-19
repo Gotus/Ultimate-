@@ -11,7 +11,8 @@ public enum TerrainType {
     DESERT,
     ICE,
     MOUNTAIN,
-    WATER;
+    LAKE,
+    OCEAN;
 
     private static HashSet<TerrainType> commonWorldMapTypes = new HashSet<>(
             Arrays.asList(PLAIN, FOREST, DESERT, ICE));
@@ -28,19 +29,6 @@ public enum TerrainType {
                 return PLAIN;//TODO change when the commonCavernMapTypes will be created
             default:
                 return PLAIN;
-        }
-    }
-
-    public boolean canMoveThrough(MoveType moveType) {
-        switch (moveType) {
-            case LAND:
-                return ((this != MOUNTAIN) && (this != WATER));
-            case WATER:
-                return (this == WATER);
-            case AIR:
-                return true;
-            default:
-                return false;
         }
     }
 }

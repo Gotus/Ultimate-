@@ -2,100 +2,25 @@ package com.ultimate.core.gameObjects;
 
 import javafx.util.Pair;
 
+import java.io.*;
 import java.util.HashMap;
-import java.util.Random;
 
-public class Location {
+public class Location implements Serializable {
+
+    private static final long serialVersionUID = 749631111141297776L;
 
     private String name;
 
-    private class Map {
+    private Map map;
 
-        int width;
-        int height;
-        TerrainType[][] cells;
-
-        private class MapNode {
-
-            int x, y;
-            LocationType locationType;
-            Pair<Location, MapNode> linkedNode;
-
-            MapNode(int x, int y, LocationType locationType) {
-                this.x = x;
-                this.y = y;
-                this.locationType = locationType;
-            }
-        }
-
-        MapNode[] mapNodes;
-
-        private class MapEdge {
-
-            MapNode from, to;
-            LocationType locationType;
-
-            MapEdge(MapNode from, MapNode to) {
-                this.from = from;
-                this.to = to;
-                locationType = (new Random().nextBoolean()) ? from.locationType : to.locationType;
-            }
-        }
-
-        MapEdge[] mapEdges;
-
-        private class JumpToAnotherLocation {
-
-            MapNode from;
-            Pair<Location, MapNode> to;
-
-            JumpToAnotherLocation(MapNode from, Pair<Location, MapNode> to) {
-                this.from = from;
-                this.to = to;
-            }
-        }
-
-        JumpToAnotherLocation[] jumpsToAnotherLocations;
-
-        public Map(int width, int height, LocationType locationType){
-            this.width = width;
-            this.height = height;
-            generate(locationType);
-        }
-
-        public int getWidth() {
-
-            return this.width;
-        }
-
-        public int getHeight() {
-
-            return this.height;
-        }
-
-        public TerrainType[][] getCells() {
-            return cells;
-        }
-
-        private void generate(LocationType locationType) {
-            //TODO generate nodes
-            //TODO generate edges
-            //TODO set terrain type to nodes
-            //TODO set terrain type to cells
-            //TODO generate mountains and reservoirs
-            //TODO set terrain type and movingType to edges
-            //TODO other staff later
-        }
-    }
-
-    Map map;
+    private int seed;
 
     static private HashMap<Pair<LocationType, LocationSize>, Integer> sizes = new HashMap<>();
 
     static {
-        sizes.put(new Pair<>(LocationType.WORLD, LocationSize.SMALL), 10);
-        sizes.put(new Pair<>(LocationType.WORLD, LocationSize.AVERAGE), 30);
-        sizes.put(new Pair<>(LocationType.WORLD, LocationSize.LARGE), 100);
+        sizes.put(new Pair<>(LocationType.WORLD, LocationSize.SMALL), 150);
+        sizes.put(new Pair<>(LocationType.WORLD, LocationSize.AVERAGE), 250);
+        sizes.put(new Pair<>(LocationType.WORLD, LocationSize.LARGE), 400);
 
         sizes.put(new Pair<>(LocationType.TOWN, LocationSize.SMALL), 10);
         sizes.put(new Pair<>(LocationType.TOWN, LocationSize.AVERAGE), 30);
@@ -111,29 +36,58 @@ public class Location {
         return sizes.get(new Pair<>(locationType, locationSize));
     }
 
-    public void setName(String name) {
-
-        this.name = new String(name);
-    }
-
     public String getName() {
 
         return this.name;
     }
 
-    public Location(int width, int height, LocationType locationType) {
+    public int getSeed() {
 
-        map = new Map(width, height, locationType);
+        return seed;
     }
 
-    public Location(LocationSize locationSize, LocationType locationType) {
+    public Location() {}
 
-        int size = getSizeInCells(locationType, locationSize);
-        map = new Map(size, size, locationType);
+    public Location(int width, int height, LocationType locationType, int seed) {
+
+        switch (locationType) {
+            case WORLD:
+                map = WorldMapsGenerator.generateMap(width, height, seed);
+                break;
+            //TODO other location types
+        }
+
+        this.seed = seed;
+        name = locationType.toString();
+    }
+
+    public Location(LocationSize locationSize, LocationType locationType, int seed) {
+
+        this(getSizeInCells(locationType, locationSize),
+                getSizeInCells(locationType, locationSize),
+                locationType, seed);
     }
 
     public Map getMap() {
 
         return map;
+    }
+
+    public void writeToFile(String path) throws IOException {
+
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path));
+        oos.writeObject(this);
+        oos.flush();
+        oos.close();
+    }
+
+    public void readFromFile(String path) throws IOException, ClassNotFoundException {
+
+        FileInputStream fis = new FileInputStream(path);
+        ObjectInputStream oin = new ObjectInputStream(fis);
+        Location location = (Location) oin.readObject();
+        this.map = location.map;
+        this.name = location.name;
+        this.seed = location.seed;
     }
 }
