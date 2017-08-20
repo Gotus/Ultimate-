@@ -1,5 +1,8 @@
 package com.ultimate.core.states;
 
+import com.ultimate.core.gameObjects.Location;
+import com.ultimate.core.gameObjects.LocationSize;
+import com.ultimate.core.gameObjects.LocationType;
 import com.ultimate.core.gameObjects.PlayCharacter;
 
 /**
@@ -7,9 +10,7 @@ import com.ultimate.core.gameObjects.PlayCharacter;
  */
 public class MenuState {
 
-    PlayCharacter newCharacter = new PlayCharacter();
-
-    public String setCharacterName(String data) {
+    public String setCharacterName(PlayCharacter newCharacter, String data) {
 
         String fields[] = data.split(" ");
         if (fields.length < 2) {
