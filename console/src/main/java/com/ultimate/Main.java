@@ -2,30 +2,16 @@ package com.ultimate; /**
  * Created by Gotus on 31.07.2017.
  */
 
-
-
-import com.ultimate.core.commands.CharCreateCommand;
-import com.ultimate.core.commands.Command;
-import com.ultimate.core.commands.MoveCommand;
-import com.ultimate.core.commands.QuitCommand;
 import com.ultimate.core.gameObjects.PlayCharacter;
-import com.ultimate.core.gameObjects.World;
 
 import java.util.Scanner;
 
 public class Main {
 
-
     public static void main(String[] args) {
-
-        PlayCharacter character = new PlayCharacter();
-        World myWorld = new World();
+        
         Scanner consoleInput = new Scanner(System.in);
         final int numOfCommands = 3;
-        Command[] commands = new Command[numOfCommands];
-        commands[0] = new CharCreateCommand();
-        commands[1] = new QuitCommand();
-        commands[2] = new MoveCommand();
 
         /*
         myWorld.createLocationArray();
