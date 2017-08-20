@@ -19,14 +19,15 @@ public class PlayCharacter {
     private int hp;
     public int damage;
 
-    public PlayCharacter() {
+    public PlayCharacter(String name, Race race) {
 
-        race = null;
-        name = null;
+        this.name = name;
+        this.race = race;
         x = 0;
         y = 0;
         hp = 50;
         damage = 3;
+
     }
 
     public void setRace(Race race) {
