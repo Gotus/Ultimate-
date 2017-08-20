@@ -4,11 +4,15 @@ package com.ultimate.core;
 import com.ultimate.core.gameObjects.*;
 
 public class GameData {
+
     PlayCharacter playCharacter;
     Location location;
 
-    public GameData(LocationSize locationSize, LocationType locationType) {
-        location = new Location(locationSize, locationType);
+    public GameData(PlayCharacter character, Location location) {
+
+        this.playCharacter = character;
+        this.location = location;
+
     }
 
     public Location getLocation() {
