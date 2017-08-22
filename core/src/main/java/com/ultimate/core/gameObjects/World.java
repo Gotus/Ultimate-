@@ -1,6 +1,7 @@
 package com.ultimate.core.gameObjects;
 
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -21,6 +22,11 @@ public class World {
     }
 
     HashMap<Character, CharacterPosition> charactersPositions = new HashMap<>();
+
+    public HashMap<Character, CharacterPosition> getCharactersPositions() {
+
+        return this.charactersPositions;
+    }
 
     public World(LocationSize locationSize, int seed) {
 
