@@ -1,10 +1,6 @@
 package com.ultimate.core;
 
 
-import com.ultimate.core.gameObjects.Location;
-import com.ultimate.core.gameObjects.LocationSize;
-import com.ultimate.core.gameObjects.LocationType;
-import com.ultimate.core.gameObjects.PlayCharacter;
 import com.ultimate.core.states.*;
 import javafx.util.Pair;
 
@@ -16,12 +12,11 @@ public class CurrentGame {
 
     public CurrentGame() {
 
-        gameData = new GameData(new PlayCharacter("I am", PlayCharacter.Race.HUMAN), new Location(LocationSize.AVERAGE, LocationType.WORLD, 42));
-        currentState = new LocationState(gameData.getLocation(), gameData.getPlayCharacter());
-
+        //currentState = new MapState(gameData.getWorld(), gameData.getPlayCharacter());
     }
 
     public String handleCommand(String command){
+        
         //TODO write a body
         String[] parsedCommand = command.split(" ");
         Pair<String, GameState> commandResult = currentState.handleCommand(parsedCommand);
@@ -71,10 +66,12 @@ public class CurrentGame {
     }
 
     GameState getCurrentState() {
+
         return currentState.getState();
     }
 
     public  GameData getGameData() {
+
         return gameData;
     }
 }

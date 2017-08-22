@@ -20,6 +20,7 @@ public enum TerrainType {
     private static Random random = new Random();
 
     public static TerrainType getRandom(LocationType locationType) {
+
         switch (locationType) {
             case WORLD:
                 return (TerrainType) commonWorldMapTypes.toArray()[random.nextInt(commonWorldMapTypes.size())];

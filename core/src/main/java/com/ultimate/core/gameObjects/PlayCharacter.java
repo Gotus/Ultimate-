@@ -13,9 +13,6 @@ public class PlayCharacter {
     private Race race;
     private String name;
 
-    private int x;
-    private int y;
-
     private int hp;
     public int damage;
 
@@ -23,11 +20,8 @@ public class PlayCharacter {
 
         this.name = name;
         this.race = race;
-        x = 0;
-        y = 0;
         hp = 50;
         damage = 3;
-
     }
 
     public void setRace(Race race) {
@@ -43,26 +37,6 @@ public class PlayCharacter {
     public Race getRace() {
 
         return race;
-    }
-
-    public void setX(int value){
-
-        x = value;
-    }
-
-    public void setY(int value) {
-
-        y = value;
-    }
-
-    public int getX() {
-
-        return x;
-    }
-
-    public int getY() {
-
-        return y;
     }
 
     public void setHp(int value) {
@@ -88,10 +62,5 @@ public class PlayCharacter {
     public int getDamage() {
 
         return damage;
-    }
-
-    public void setCurrentLocation(int x, int y) {
-
-
     }
 }

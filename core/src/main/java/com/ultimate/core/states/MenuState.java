@@ -1,50 +1,17 @@
 package com.ultimate.core.states;
 
-import com.ultimate.core.gameObjects.Location;
-import com.ultimate.core.gameObjects.LocationSize;
-import com.ultimate.core.gameObjects.LocationType;
-import com.ultimate.core.gameObjects.PlayCharacter;
 
-/**
- * Created by Gotus on 12.08.2017.
- */
-public class MenuState {
+import javafx.util.Pair;
 
-    public Boolean createNewCharacter(PlayCharacter.Race race, String name) {
+public class MenuState implements IState {
 
-        PlayCharacter character = new PlayCharacter(name, race);
-        return true;
+    public Pair<String, GameState> handleCommand(String command) {
+
+        return new Pair<>("TODO", GameState.BATTLE_STATE);//TODO write a body
     }
 
-    public void saveCharacter(){
+    public GameState getState() {
 
-
-    }
-
-    public String setCharacterName(PlayCharacter newCharacter, String data) {
-
-        String fields[] = data.split(" ");
-        if (fields.length < 2) {
-
-            return "Not enough data to create character";
-        }
-
-        if (fields[0].equalsIgnoreCase("") || fields[1].equalsIgnoreCase("")) {
-
-            return "Fields can't be empty";
-        }
-
-        newCharacter.setName(fields[0]);
-
-        for (PlayCharacter.Race race: PlayCharacter.Race.values()) {
-
-            if (race.toString().equalsIgnoreCase(fields[1])) {
-
-                newCharacter.setRace(race);
-                break;
-            }
-        }
-
-        return newCharacter.toString();
+        return GameState.MENU_STATE;
     }
 }
