@@ -13,8 +13,6 @@ public class Location implements Serializable {
 
     private Map map;
 
-    private int seed;
-
     static private HashMap<Pair<LocationType, LocationSize>, Integer> sizes = new HashMap<>();
 
     static {
@@ -41,23 +39,17 @@ public class Location implements Serializable {
         return this.name;
     }
 
-    public int getSeed() {
-
-        return seed;
-    }
-
     public Location() {}
 
     public Location(int width, int height, LocationType locationType, int seed) {
 
         switch (locationType) {
             case WORLD:
-                map = WorldMapsGenerator.generateMap(width, height, seed);
+                map = IslandMapsGenerator.generateMap(width, height, seed);
                 break;
             //TODO other location types
         }
 
-        this.seed = seed;
         name = locationType.toString();
     }
 
@@ -88,6 +80,5 @@ public class Location implements Serializable {
         Location location = (Location) oin.readObject();
         this.map = location.map;
         this.name = location.name;
-        this.seed = location.seed;
     }
 }
