@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 
-public class WorldMapsGenerator {
+public class IslandMapsGenerator {
 
     private final static int minimumNodeDistance = 6;
     private final static int maximumNodeDistance = 15;
@@ -16,7 +16,7 @@ public class WorldMapsGenerator {
     private final static double oceanBorder = 0.8;
     private final static double oceanFreedom = 0.6;
 
-    private WorldMapsGenerator() {}
+    private IslandMapsGenerator() {}
 
     public static Map generateMap(int width, int height, int seed) {
 
