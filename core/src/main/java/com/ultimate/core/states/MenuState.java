@@ -1,13 +1,8 @@
 package com.ultimate.core.states;
 
-import com.ultimate.core.gameObjects.Location;
-import com.ultimate.core.gameObjects.LocationSize;
-import com.ultimate.core.gameObjects.LocationType;
+
 import com.ultimate.core.gameObjects.PlayCharacter;
 
-/**
- * Created by Gotus on 12.08.2017.
- */
 public class MenuState {
 
     public String setCharacterName(PlayCharacter newCharacter, String data) {
