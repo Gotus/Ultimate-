@@ -18,9 +18,8 @@ public class CurrentGame {
     public String handleCommand(String command){
         
         //TODO write a body
-        String[] parsedCommand = command.split(" ");
-        Pair<String, GameState> commandResult = new Pair<>(currentState.handleCommand(parsedCommand).getKey(),
-                currentState.handleCommand(parsedCommand).getValue());
+        Pair<String, GameState> commandResult = new Pair<>(currentState.handleCommand(command).getKey(),
+                currentState.handleCommand(command).getValue());
 
         return commandResult.getKey();
     }
