@@ -1,6 +1,7 @@
 package com.ultimate.core;
 
 
+import com.ultimate.core.gameObjects.PlayCharacter;
 import com.ultimate.core.states.*;
 import javafx.util.Pair;
 
@@ -18,17 +19,17 @@ public class CurrentGame {
     public String handleCommand(String command){
         
         //TODO write a body
-        String[] parsedCommand = command.split(" ");
-        Pair<String, GameState> commandResult = currentState.handleCommand(parsedCommand);
+        Pair<String, GameState> commandResult = currentState.handleCommand(command);
         GameState newState;
         newState = commandResult.getValue();
+        PlayCharacter player = gameData.getPlayCharacter();
         switch (this.currentState.getState()) {
 
             case BATTLE_STATE:
                 switch (newState) {
 
-                    case WORLD_MAP_STATE:
-                        this.currentState = new LocationState(gameData.getLocation(), gameData.getPlayCharacter());
+                    case MAP_STATE:
+                        this.currentState = new MapState(gameData.getWorld(), player);
                         break;
                     case MENU_STATE:
                         break;
@@ -36,7 +37,7 @@ public class CurrentGame {
                 }
                 break;
 
-            case WORLD_MAP_STATE:
+            case MAP_STATE:
                 switch (newState) {
 
                     case BATTLE_STATE:
@@ -52,7 +53,7 @@ public class CurrentGame {
             case MENU_STATE:
                 switch (newState) {
 
-                    case WORLD_MAP_STATE:
+                    case MAP_STATE:
                         //generate or load world
                         break;
 
