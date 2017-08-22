@@ -89,6 +89,7 @@ public class PlayCharacter {
 
         return damage;
     }
+
     public void setCurrentLocation(int x, int y) {
 
 
