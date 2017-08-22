@@ -1,9 +1,9 @@
 package com.ultimate.core.states;
 
+
 import com.ultimate.core.gameObjects.Location;
 import com.ultimate.core.gameObjects.PlayCharacter;
 import javafx.util.Pair;
-
 
 public class MapState implements IState{
 

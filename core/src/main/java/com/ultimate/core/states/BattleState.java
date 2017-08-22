@@ -1,12 +1,12 @@
 package com.ultimate.core.states;
 
+
 import com.ultimate.core.gameObjects.Enemy;
 import com.ultimate.core.gameObjects.PlayCharacter;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class BattleState implements IState {
 

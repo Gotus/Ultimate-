@@ -15,10 +15,12 @@ public class GameData {
     }
 
     public World getWorld() {
+
         return world;
     }
 
     public PlayCharacter getPlayCharacter(){
+
         return playCharacter;
     }
 }

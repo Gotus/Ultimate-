@@ -16,6 +16,7 @@ public class CurrentGame {
     }
 
     public String handleCommand(String command){
+        
         //TODO write a body
         String[] parsedCommand = command.split(" ");
         Pair<String, GameState> commandResult = new Pair<>(currentState.handleCommand(parsedCommand).getKey(),
@@ -25,10 +26,12 @@ public class CurrentGame {
     }
 
     GameState getCurrentState() {
+
         return currentState.getState();
     }
 
     public  GameData getGameData() {
+
         return gameData;
     }
 }
