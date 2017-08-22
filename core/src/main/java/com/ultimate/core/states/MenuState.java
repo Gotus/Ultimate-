@@ -10,6 +10,17 @@ import com.ultimate.core.gameObjects.PlayCharacter;
  */
 public class MenuState {
 
+    public Boolean createNewCharacter(PlayCharacter.Race race, String name) {
+
+        PlayCharacter character = new PlayCharacter(name, race);
+        return true;
+    }
+
+    public void saveCharacter(){
+
+
+    }
+
     public String setCharacterName(PlayCharacter newCharacter, String data) {
 
         String fields[] = data.split(" ");
