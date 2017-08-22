@@ -15,7 +15,7 @@ public class Main {
         final int numOfCommands = 3;
 
         CurrentGame game = new CurrentGame();
-        
+
         /*
         myWorld.createLocationArray();
         //System.out.println(character.setName("Gotus"));
