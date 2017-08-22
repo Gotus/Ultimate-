@@ -5,12 +5,12 @@ import com.ultimate.core.gameObjects.PlayCharacter;
 import javafx.util.Pair;
 
 
-public class LocationState implements IState{
+public class MapState implements IState{
 
     Location location;
     PlayCharacter character;
 
-    public LocationState(Location location, PlayCharacter character) {
+    public MapState(Location location, PlayCharacter character) {
 
         this.location = location;
         this.character = character;
