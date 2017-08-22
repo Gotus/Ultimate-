@@ -1,34 +1,17 @@
 package com.ultimate.core.states;
 
 
-import com.ultimate.core.gameObjects.PlayCharacter;
+import javafx.util.Pair;
 
-public class MenuState {
+public class MenuState implements IState {
 
-    public String setCharacterName(PlayCharacter newCharacter, String data) {
+    public Pair<String, GameState> handleCommand(String command) {
 
-        String fields[] = data.split(" ");
-        if (fields.length < 2) {
+        return new Pair<>("TODO", GameState.BATTLE_STATE);//TODO write a body
+    }
 
-            return "Not enough data to create character";
-        }
+    public GameState getState() {
 
-        if (fields[0].equalsIgnoreCase("") || fields[1].equalsIgnoreCase("")) {
-
-            return "Fields can't be empty";
-        }
-
-        newCharacter.setName(fields[0]);
-
-        for (PlayCharacter.Race race: PlayCharacter.Race.values()) {
-
-            if (race.toString().equalsIgnoreCase(fields[1])) {
-
-                newCharacter.setRace(race);
-                break;
-            }
-        }
-
-        return newCharacter.toString();
+        return GameState.MENU_STATE;
     }
 }
