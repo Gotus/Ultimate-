@@ -32,16 +32,11 @@ public class BattleState implements IState {
         return GameState.BATTLE_STATE;
     }
 
-    public void exit() {
-
-        System.exit(0);
-    }
-
     public Pair<String, GameState> handleCommand(String... command) {
 
         if (command.length == 0) {
 
-            return new Pair<>("Command not inputed", GameState.WORLD_MAP_STATE);
+            return new Pair<>("Command not inputed", GameState.MAP_STATE);
         }
 
         if (command[0].equalsIgnoreCase("attack")) {
@@ -55,12 +50,12 @@ public class BattleState implements IState {
 
             if (command[1].equalsIgnoreCase("")) {
 
-                return new Pair<>("The second argument must be number", GameState.WORLD_MAP_STATE);
+                return new Pair<>("The second argument must be number", GameState.MAP_STATE);
             }
 
             if (attack(Integer.valueOf(command[1]))) {
 
-                return new Pair<>("Victory!", GameState.WORLD_MAP_STATE);
+                return new Pair<>("Victory!", GameState.MAP_STATE);
             }
 
             return new Pair<>(character.getName() + " " + enemies.get(Integer.valueOf(command[1])).getName() + " " + character.getDamage(), GameState.BATTLE_STATE);

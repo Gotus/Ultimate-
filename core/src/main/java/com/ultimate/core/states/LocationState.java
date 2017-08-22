@@ -24,26 +24,21 @@ public class LocationState implements IState{
 
     public GameState getState() {
 
-        return GameState.WORLD_MAP_STATE;
-    }
-
-    public void exit() {
-
-        System.exit(0);
+        return GameState.MAP_STATE;
     }
 
     public Pair<String, GameState> handleCommand(String... command) {
 
         if (command.length == 0) {
 
-            return new Pair<>("Command not inputed", GameState.WORLD_MAP_STATE);
+            return new Pair<>("Command not inputed", GameState.MAP_STATE);
         }
 
         if (command[0].equalsIgnoreCase("move")) {
 
             if (command.length < 3) {
 
-                return new Pair<>("Not enough arguments", GameState.WORLD_MAP_STATE);
+                return new Pair<>("Not enough arguments", GameState.MAP_STATE);
             }
 
             command[1] = command[1].replaceAll("[^\\d]", "");
@@ -51,7 +46,7 @@ public class LocationState implements IState{
 
             if ((command[1].equalsIgnoreCase("")) || (command[2].equalsIgnoreCase(""))) {
 
-                return new Pair<>("The second and the third arguments must be numbers", GameState.WORLD_MAP_STATE);
+                return new Pair<>("The second and the third arguments must be numbers", GameState.MAP_STATE);
             }
 
             move(Integer.valueOf(command[1]), Integer.valueOf(command[2]));
@@ -61,7 +56,7 @@ public class LocationState implements IState{
                 return new Pair<>("Battle begins!", GameState.BATTLE_STATE);
             }
 
-            return new Pair<>("Moved successfully!", GameState.WORLD_MAP_STATE);
+            return new Pair<>("Moved successfully!", GameState.MAP_STATE);
         }
 
         if (command[0].equalsIgnoreCase("quit")) {
