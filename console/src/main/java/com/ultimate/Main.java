@@ -2,6 +2,7 @@ package com.ultimate; /**
  * Created by Gotus on 31.07.2017.
  */
 
+import com.ultimate.core.CurrentGame;
 import com.ultimate.core.gameObjects.PlayCharacter;
 
 import java.util.Scanner;
@@ -9,10 +10,12 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        
+
         Scanner consoleInput = new Scanner(System.in);
         final int numOfCommands = 3;
 
+        CurrentGame game = new CurrentGame();
+        
         /*
         myWorld.createLocationArray();
         //System.out.println(character.setName("Gotus"));
