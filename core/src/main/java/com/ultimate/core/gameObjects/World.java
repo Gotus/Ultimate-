@@ -27,6 +27,11 @@ public class World implements Serializable {
 
     HashMap<Character, CharacterPosition> charactersPositions = new HashMap<>();
 
+    public HashMap<Character, CharacterPosition> getCharactersPositions() {
+
+        return this.charactersPositions;
+    }
+
     public World(LocationSize locationSize, int seed) {
 
         this.seed = seed;
