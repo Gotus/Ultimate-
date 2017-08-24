@@ -28,16 +28,16 @@ public class MenuState implements IState {
 
             //folder exists
             File file = new File(dirPath);
-            for (String currentPath:   file.list()) {
+            for (String currentPath : file.list()) {
 
-                if (currentPath.contains("/" + name + ".name")) {
+                if (currentPath.contains("/" + name + ".character")) {
 
                     return false;
                 }
 
-                PlayCharacter newCharacter = new PlayCharacter(name, race);
-
             }
+
+            PlayCharacter newCharacter = new PlayCharacter(name, race);
 
         } else {
 
