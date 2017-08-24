@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.logging.FileHandler;
 
 public class MenuState implements IState {
 
@@ -38,6 +39,14 @@ public class MenuState implements IState {
             }
 
             PlayCharacter newCharacter = new PlayCharacter(name, race);
+            try {
+
+                com.ultimate.core.gameObjects.FileHandler.writeObjectToFile(newCharacter, dirPath + "/" + name + ".character");
+
+            } catch (IOException ex) {
+
+                ex.printStackTrace();
+            }
 
         } else {
 
@@ -47,6 +56,7 @@ public class MenuState implements IState {
             try {
 
                 file.createNewFile(); //creates file with character information
+                com.ultimate.core.gameObjects.FileHandler.writeObjectToFile(newCharacter, dirPath + "/" + name + ".character");
 
             } catch (IOException exception) {
 
