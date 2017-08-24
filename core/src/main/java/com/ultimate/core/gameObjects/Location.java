@@ -64,21 +64,4 @@ public class Location implements Serializable {
 
         return map;
     }
-
-    public void writeToFile(String path) throws IOException {
-
-        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path));
-        oos.writeObject(this);
-        oos.flush();
-        oos.close();
-    }
-
-    public void readFromFile(String path) throws IOException, ClassNotFoundException {
-
-        FileInputStream fis = new FileInputStream(path);
-        ObjectInputStream oin = new ObjectInputStream(fis);
-        Location location = (Location) oin.readObject();
-        this.map = location.map;
-        this.name = location.name;
-    }
 }

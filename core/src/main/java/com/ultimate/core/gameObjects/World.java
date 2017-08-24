@@ -1,12 +1,14 @@
 package com.ultimate.core.gameObjects;
 
 
-import java.time.LocalDateTime;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-public class World {
+public class World implements Serializable {
+
+    private static final long serialVersionUID = 6857988707171828214L;
 
     ArrayList<Location> locations = new ArrayList<>();
 
@@ -14,7 +16,9 @@ public class World {
 
     Map.MapNode startNode;
 
-    private class CharacterPosition {
+    private class CharacterPosition  implements Serializable {
+
+        private static final long serialVersionUID = 6319985168568837514L;
 
         Location location;
         Map.MapNode mapNode;
