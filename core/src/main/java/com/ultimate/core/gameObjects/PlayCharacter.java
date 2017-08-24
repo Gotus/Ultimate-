@@ -1,7 +1,11 @@
 package com.ultimate.core.gameObjects;
 
 
-public class PlayCharacter {
+import java.io.Serializable;
+
+public class PlayCharacter implements Serializable {
+
+    private static final long serialVersionUID = 4246087279456497129L;
 
     public enum Race {
 
