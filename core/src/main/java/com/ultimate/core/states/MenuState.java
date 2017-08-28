@@ -2,6 +2,7 @@ package com.ultimate.core.states;
 
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import com.ultimate.core.GameData;
 import com.ultimate.core.gameObjects.LocationSize;
 import com.ultimate.core.gameObjects.PlayCharacter;
 import com.ultimate.core.gameObjects.World;
@@ -117,6 +118,17 @@ public class MenuState implements IState {
         }
 
         return true;
+    }
+
+    GameData startGame(String charName, String worlName) throws IOException, ClassNotFoundException {
+
+        PlayCharacter character;
+        World world;
+
+        character = (PlayCharacter) com.ultimate.core.gameObjects.FileHandler.readObjectFromFile("/saves/" + charName + ".character");
+        world = (World)com.ultimate.core.gameObjects.FileHandler.readObjectFromFile("/saves/" + worlName + ".world");
+        return new GameData(character, world);
+
     }
 
     public GameState getState() {
