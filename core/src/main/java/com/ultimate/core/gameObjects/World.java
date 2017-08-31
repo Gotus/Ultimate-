@@ -9,7 +9,7 @@ import java.util.Random;
 public class World implements Serializable {
 
     private static final long serialVersionUID = 6857988707171828214L;
-
+    private String name;
     ArrayList<Location> locations = new ArrayList<>();
 
     int seed;
@@ -40,5 +40,10 @@ public class World implements Serializable {
         Location startLocation = new Location(locationSize, LocationType.WORLD, random.nextInt());
         locations.add(startLocation);
         startNode = startLocation.getMap().startNode;
+    }
+
+    public String getName() {
+
+        return name;
     }
 }
