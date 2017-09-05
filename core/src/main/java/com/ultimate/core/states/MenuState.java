@@ -1,8 +1,6 @@
 package com.ultimate.core.states;
 
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-import com.ultimate.core.CurrentGame;
 import com.ultimate.core.GameData;
 import com.ultimate.core.gameObjects.LocationSize;
 import com.ultimate.core.gameObjects.PlayCharacter;
