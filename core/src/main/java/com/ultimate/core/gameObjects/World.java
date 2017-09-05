@@ -10,7 +10,7 @@ public class World implements Serializable {
 
     private static final long serialVersionUID = 6857988707171828214L;
     private String name;
-    ArrayList<Location> locations = new ArrayList<>();
+    private ArrayList<Location> locations = new ArrayList<>();
 
     int seed;
 
@@ -45,5 +45,10 @@ public class World implements Serializable {
     public String getName() {
 
         return name;
+    }
+
+    public ArrayList<Location> getLocations() {
+
+        return this.locations;
     }
 }
