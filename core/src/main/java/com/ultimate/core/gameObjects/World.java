@@ -16,18 +16,26 @@ public class World implements Serializable {
 
     Map.MapNode startNode;
 
-    private class CharacterPosition  implements Serializable {
+    public static class CharacterPosition  implements Serializable {
 
         private static final long serialVersionUID = 6319985168568837514L;
 
         Location location;
         Map.MapNode mapNode;
         int x, y;
+
+
+        public CharacterPosition(Location location, Map.MapNode mapNode) {
+
+            this.location = location;
+            this.mapNode = mapNode;
+        }
+
     }
 
-    HashMap<Character, CharacterPosition> charactersPositions = new HashMap<>();
+    HashMap<PlayCharacter, CharacterPosition> charactersPositions = new HashMap<>();
 
-    public HashMap<Character, CharacterPosition> getCharactersPositions() {
+    public HashMap<PlayCharacter, CharacterPosition> getCharactersPositions() {
 
         return this.charactersPositions;
     }
