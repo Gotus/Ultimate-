@@ -2,6 +2,7 @@ package com.ultimate.core.states;
 
 
 import com.ultimate.core.gameObjects.Location;
+import com.ultimate.core.gameObjects.Map;
 import com.ultimate.core.gameObjects.PlayCharacter;
 import com.ultimate.core.gameObjects.World;
 import javafx.util.Pair;
@@ -29,14 +30,18 @@ public class MapState implements IState{
         return new Pair<>("TODO", GameState.MAP_STATE);//TODO write a body
     }
 
+    //Move character from current node of current location to other node of current location
     Boolean moveToNode(String nodeName) {
 
-        ArrayList<Location> allLoctions = currentWorld.getLocations();
-        for (int i = 0; i < allLoctions.size(); i++) {
+        ArrayList<Map.MapNode> allNodes = currentWorld.getCharactersPositions().get(character).getLocation().getMap().getMapNodes();
+        Location currentLocation = currentWorld.getCharactersPositions().get(character).getLocation();
 
-            if (nodeName.equalsIgnoreCase(allLoctions.get(i).getName())) {
+        for (int i = 0; i < allNodes.size(); i++) {
+
+            if (allNodes.get(i).getName().equalsIgnoreCase(nodeName)) {
                 //if pain == life then
-                currentWorld.getCharactersPositions().put(character, new World.CharacterPosition(allLoctions.get(i), allLoctions.get(i).getMap().getStartNode()));
+                currentWorld.getCharactersPositions().put(character, new World.CharacterPosition(currentLocation,
+                        allNodes.get(i)));
                 return true;
             }
         }
