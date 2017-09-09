@@ -13,7 +13,7 @@ public class Map implements Serializable {
     private int height;
     private TerrainType[][] cells;
 
-    static class MapNode implements Serializable {
+    public static class MapNode implements Serializable {
 
         private static final long serialVersionUID = -7053938611138474094L;
 
@@ -26,10 +26,20 @@ public class Map implements Serializable {
             this.x = x;
             this.y = y;
         }
+
+        public String getName() {
+
+            return name;
+        }
     }
 
     ArrayList<MapNode> mapNodes = new ArrayList<>();
     MapNode startNode = null;
+
+    public ArrayList<MapNode> getMapNodes() {
+
+        return mapNodes;
+    }
 
     static class MapEdge implements Serializable {
 
@@ -54,6 +64,7 @@ public class Map implements Serializable {
         Pair<Location, MapNode> to;
 
         JumpToAnotherLocation(MapNode from, Pair<Location, MapNode> to) {
+
             this.from = from;
             this.to = to;
         }
