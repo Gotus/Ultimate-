@@ -31,6 +31,16 @@ public class World implements Serializable {
             this.mapNode = mapNode;
         }
 
+        public Location getLocation(){
+
+            return this.location;
+        }
+
+        public Map.MapNode getMapNode() {
+
+            return this.mapNode;
+        }
+
     }
 
     HashMap<PlayCharacter, CharacterPosition> charactersPositions = new HashMap<>();
