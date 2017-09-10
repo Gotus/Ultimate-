@@ -15,6 +15,7 @@ public class World implements Serializable {
     int seed;
 
     Map.MapNode startNode;
+    Map current_map;
 
     public static class CharacterPosition  implements Serializable {
 
@@ -25,7 +26,7 @@ public class World implements Serializable {
         int x, y;
 
 
-        public CharacterPosition(Location location, Map.MapNode mapNode) {
+        public CharacterPosition(Location location, Map.MapNode mapNode, int x, int y) {
 
             this.location = location;
             this.mapNode = mapNode;
@@ -68,5 +69,10 @@ public class World implements Serializable {
     public ArrayList<Location> getLocations() {
 
         return this.locations;
+    }
+
+    public Map getCurrentMap() {
+
+        return this.current_map;
     }
 }
