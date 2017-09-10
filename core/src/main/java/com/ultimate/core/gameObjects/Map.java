@@ -31,6 +31,16 @@ public class Map implements Serializable {
 
             return name;
         }
+
+        public int getX() {
+
+            return this.x;
+        }
+
+        public int getY() {
+
+            return this.y;
+        }
     }
 
     ArrayList<MapNode> mapNodes = new ArrayList<>();
