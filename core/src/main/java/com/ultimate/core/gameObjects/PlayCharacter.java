@@ -53,11 +53,6 @@ public class PlayCharacter implements Serializable {
         return hp;
     }
 
-    public void attackEnemy(Enemy enemy) {//TODO move to battle
-
-        enemy.receiveDamage(damage);
-    }
-
     public String getName() {
 
         return name;

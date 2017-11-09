@@ -22,7 +22,12 @@ public class BattleState implements IState {
 
     public boolean attack(int id) {
 
-        character.attackEnemy(enemies.get(id));
+        enemies.get(id).receiveDamage(character.getDamage());
+
+        if (enemies.get(id).getHp() <= 0) {
+
+            enemies.remove(id);
+        }
 
         return enemies.isEmpty();
     }
