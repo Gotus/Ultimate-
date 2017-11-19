@@ -5,6 +5,9 @@ import com.ultimate.core.gameObjects.PlayCharacter;
 import com.ultimate.core.states.*;
 import javafx.util.Pair;
 
+import java.awt.*;
+import java.io.IOException;
+
 public class CurrentGame {
 
     private IState currentState;
@@ -32,6 +35,18 @@ public class CurrentGame {
                         this.currentState = new MapState(gameData.getWorld(), player);
                         break;
                     case MENU_STATE:
+                        //from battle to menu
+                        MenuState nextState = new MenuState();
+                        try {
+
+                            nextState.exitWithSaving(true, player, gameData.getWorld());
+                        } catch (IOException exception) {
+
+                            exception.printStackTrace();
+                        } catch (ClassNotFoundException exception) {
+
+                            exception.printStackTrace();
+                        }
                         break;
 
                 }
@@ -45,6 +60,7 @@ public class CurrentGame {
                         this.currentState = new BattleState(null, gameData.getPlayCharacter());
                         break;
                     case MENU_STATE:
+                        //from map to menu
                         break;
 
                 }
