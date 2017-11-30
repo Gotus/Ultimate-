@@ -61,8 +61,18 @@ public class CurrentGame {
                         break;
                     case MENU_STATE:
                         //from map to menu
-                        break;
+                        MenuState nextState = new MenuState();
+                        try {
 
+                            nextState.exitWithSaving(true, player, gameData.getWorld());
+                        } catch (IOException exception) {
+
+                            exception.printStackTrace();
+                        } catch (ClassNotFoundException exception) {
+
+                            exception.printStackTrace();
+                        }
+                        break;
                 }
                 break;
 
