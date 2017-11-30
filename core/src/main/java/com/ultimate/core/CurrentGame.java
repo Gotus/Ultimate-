@@ -81,6 +81,17 @@ public class CurrentGame {
 
                     case MAP_STATE:
                         //generate or load world
+                        MenuState nextState = new MenuState();
+                        try {
+
+                            gameData = nextState.startGame(gameData.getPlayCharacter().getName(), gameData.getWorld().getName());
+                        } catch (IOException exception) {
+
+                            exception.printStackTrace();
+                        } catch (ClassNotFoundException exception) {
+
+                            exception.printStackTrace();
+                        }
                         break;
 
                 }
