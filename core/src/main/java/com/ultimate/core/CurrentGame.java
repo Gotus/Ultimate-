@@ -32,6 +32,7 @@ public class CurrentGame {
                 switch (newState) {
 
                     case MAP_STATE:
+                        //from battle to map
                         this.currentState = new MapState(gameData.getWorld(), player);
                         break;
                     case MENU_STATE:
@@ -56,7 +57,7 @@ public class CurrentGame {
                 switch (newState) {
 
                     case BATTLE_STATE:
-                        //generate enemies
+                        //from map to battle
                         this.currentState = new BattleState(null, gameData.getPlayCharacter());
                         break;
                     case MENU_STATE:
@@ -80,6 +81,7 @@ public class CurrentGame {
                 switch (newState) {
 
                     case MAP_STATE:
+                        //from menu to map
                         //generate or load world
                         MenuState nextState = new MenuState();
                         try {
