@@ -57,7 +57,27 @@ public class MenuState implements IState {
                     return new Pair<>(commandResult, GameState.MENU_STATE);
                 }
 
+            case "startGame":
+                if (commandAndAttributes.length != 3) {
 
+                    commandResult = new String("Wrong number of arguments!");
+                    return new Pair<>(commandResult, GameState.MENU_STATE);
+                }
+
+                try {
+
+                    GameData newGameData = startGame(commandAndAttributes[1], commandAndAttributes[2]);
+                    return new Pair<>(newGameData.toString(), GameState.MAP_STATE);
+                }
+                catch (IOException e) {
+
+                    e.printStackTrace();
+                }
+                catch (ClassNotFoundException e) {
+
+                    e.printStackTrace();
+                }
+                break;
         }
         return new Pair<>("TODO", GameState.BATTLE_STATE);//TODO write a body
     }
@@ -160,13 +180,13 @@ public class MenuState implements IState {
         return true;
     }
 
-    public GameData startGame(String charName, String worlName) throws IOException, ClassNotFoundException {
+    public GameData startGame(String charName, String worldName) throws IOException, ClassNotFoundException {
 
         PlayCharacter character;
         World world;
 
         character = (PlayCharacter) com.ultimate.core.gameObjects.FileHandler.readObjectFromFile("/saves/" + charName + ".character");
-        world = (World)com.ultimate.core.gameObjects.FileHandler.readObjectFromFile("/saves/" + worlName + ".world");
+        world = (World)com.ultimate.core.gameObjects.FileHandler.readObjectFromFile("/saves/" + worldName + ".world");
         return new GameData(character, world);
 
     }
