@@ -18,6 +18,41 @@ public class MenuState implements IState {
 
     public Pair<String, GameState> handleCommand(String command) {
 
+        String[] commandAndAttributes = command.split(" ");
+        String commandResult;
+        switch (commandAndAttributes[0]) {
+
+            case "createNewCharacter":
+                if (commandAndAttributes.length != 3) {
+
+                    commandResult = new String("Wrong number of arguments!");
+                    return new Pair<>(commandResult, GameState.MENU_STATE);
+                }
+                switch (commandAndAttributes[1]) {
+
+                    case "elf":
+                        createNewCharacter(PlayCharacter.Race.ELF, commandAndAttributes[2]);
+                        commandResult = new String("Character was successfully created. Race: " + commandAndAttributes[1] +
+                                " Name: " + commandAndAttributes[2]);
+                        return new Pair<>(commandResult, GameState.MENU_STATE);
+
+                    case "dwarf":
+                        createNewCharacter(PlayCharacter.Race.DWARF, commandAndAttributes[2]);
+                        commandResult = new String("Character was successfully created. Race: " + commandAndAttributes[1] +
+                                " Name: " + commandAndAttributes[2]);
+                        return new Pair<>(commandResult, GameState.MENU_STATE);
+
+                    case "human":
+                        createNewCharacter(PlayCharacter.Race.HUMAN, commandAndAttributes[2]);
+                        commandResult = new String("Character was successfully created. Race: " + commandAndAttributes[1] +
+                                " Name: " + commandAndAttributes[2]);
+                        return new Pair<>(commandResult, GameState.MENU_STATE);
+
+                    default:
+                        commandResult = new String("Wromg race was selected!");
+                        return new Pair<>(commandResult, GameState.MENU_STATE);
+                }
+        }
         return new Pair<>("TODO", GameState.BATTLE_STATE);//TODO write a body
     }
 
