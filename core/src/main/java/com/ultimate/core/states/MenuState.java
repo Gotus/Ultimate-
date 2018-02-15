@@ -72,13 +72,12 @@ public class MenuState implements IState {
                 }
                 catch (IOException e) {
 
-                    e.printStackTrace();
+                    return new Pair<>("IOException MenuState startGane", GameState.MENU_STATE);
                 }
                 catch (ClassNotFoundException e) {
 
-                    e.printStackTrace();
+                    return new Pair<>("ClassNotFoundException MenuState startGane", GameState.MENU_STATE);
                 }
-                break;
 
             case "createNewWorld":
 
