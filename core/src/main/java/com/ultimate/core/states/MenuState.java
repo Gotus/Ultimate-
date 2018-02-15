@@ -33,22 +33,32 @@ public class MenuState implements IState {
                         commandAndAttributes[1].equalsIgnoreCase("dwarf") ||
                         commandAndAttributes[1].equalsIgnoreCase("human")) {
 
+                    boolean successCreation = false;
 
                     if (commandAndAttributes[1].equalsIgnoreCase("elf")) {
 
-                        createNewCharacter(PlayCharacter.Race.ELF, commandAndAttributes[2]);
+                        successCreation = createNewCharacter(PlayCharacter.Race.ELF, commandAndAttributes[2]);
 
                     } else if (commandAndAttributes[1].equalsIgnoreCase("dwarf")) {
 
-                        createNewCharacter(PlayCharacter.Race.DWARF, commandAndAttributes[2]);
+                        successCreation = createNewCharacter(PlayCharacter.Race.DWARF, commandAndAttributes[2]);
 
                     } else if (commandAndAttributes[1].equalsIgnoreCase("human")) {
 
-                        createNewCharacter(PlayCharacter.Race.HUMAN, commandAndAttributes[2]);
+                        successCreation = createNewCharacter(PlayCharacter.Race.HUMAN, commandAndAttributes[2]);
                     }
 
-                    commandResult = new String("Character was successfully created. Race: " + commandAndAttributes[1] +
-                            " Name: " + commandAndAttributes[2]);
+                    if (successCreation) {
+
+                        commandResult = new String("Character was successfully created. Race: " + commandAndAttributes[1] +
+                                " Name: " + commandAndAttributes[2]);
+
+                    } else {
+
+                        commandResult = new String("Character was not successfully created.");
+
+                    }
+                    
                     return new Pair<>(commandResult, GameState.MENU_STATE);
 
                 } else {
