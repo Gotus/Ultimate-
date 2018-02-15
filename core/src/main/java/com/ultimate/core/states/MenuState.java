@@ -58,6 +58,7 @@ public class MenuState implements IState {
                 }
 
             case "startGame":
+
                 if (commandAndAttributes.length != 3) {
 
                     commandResult = new String("Wrong number of arguments!");
@@ -78,8 +79,44 @@ public class MenuState implements IState {
                     e.printStackTrace();
                 }
                 break;
+
+            case "createNewWorld":
+
+                if (commandAndAttributes.length != 3) {
+
+                    commandResult = new String("Wrong number of arguments!");
+                    return new Pair<>(commandResult, GameState.MENU_STATE);
+                }
+
+                if (commandAndAttributes[1].equalsIgnoreCase("small") ||
+                        commandAndAttributes[1].equalsIgnoreCase("average") ||
+                        commandAndAttributes[1].equalsIgnoreCase("large")) {
+
+                    if (commandAndAttributes[1].equalsIgnoreCase("small")) {
+
+                        createNewWorld(LocationSize.SMALL, commandAndAttributes[2]);
+
+                    } else if (commandAndAttributes[1].equalsIgnoreCase("average")) {
+
+                        createNewWorld(LocationSize.AVERAGE, commandAndAttributes[2]);
+
+                    } else if (commandAndAttributes[1].equalsIgnoreCase("large")) {
+
+                        createNewWorld(LocationSize.LARGE, commandAndAttributes[2]);
+                    }
+
+                    commandResult = new String("World was successfully created. Size: " + commandAndAttributes[1] +
+                            " Name: " + commandAndAttributes[2]);
+                    return new Pair<>(commandResult, GameState.MENU_STATE);
+
+                } else {
+
+                    commandResult = new String("Wrong world size was selected!");
+                    return new Pair<>(commandResult, GameState.MENU_STATE);
+                }
+
         }
-        return new Pair<>("TODO", GameState.BATTLE_STATE);//TODO write a body
+        return new Pair<>("Command not found!", GameState.MENU_STATE);//TODO write a body
     }
 
     public Boolean createNewCharacter(PlayCharacter.Race race, String name) {
