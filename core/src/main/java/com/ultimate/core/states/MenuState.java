@@ -53,6 +53,7 @@ public class MenuState implements IState {
                         commandResult = new String("Character was successfully created. Race: " + commandAndAttributes[1] +
                                 " Name: " + commandAndAttributes[2]);
 
+
                     } else {
 
                         commandResult = new String("Character was not successfully created.");
