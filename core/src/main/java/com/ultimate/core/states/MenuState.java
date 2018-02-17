@@ -127,7 +127,7 @@ public class MenuState implements IState {
                     }
 
                     return new Pair<>(commandResult, GameState.MENU_STATE);
-                    
+
                 } else {
 
                     commandResult = new String("Wrong world size was selected!");
