@@ -59,7 +59,7 @@ public class MenuState implements IState {
                         commandResult = new String("Character was not successfully created.");
 
                     }
-                    
+
                     return new Pair<>(commandResult, GameState.MENU_STATE);
 
                 } else {
