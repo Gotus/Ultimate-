@@ -1,6 +1,9 @@
 package com.ultimate.core.gameObjects;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -74,5 +77,21 @@ public class World implements Serializable {
     public Map getCurrentMap() {
 
         return this.current_map;
+    }
+
+    public String toJSON() {
+
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+
+            String jsonPlayerString = mapper.writeValueAsString(this);
+            return jsonPlayerString;
+
+        } catch (JsonProcessingException e) {
+
+            String exception = new String("Can't convert world object to JSON!");
+            return exception;
+        }
+
     }
 }
