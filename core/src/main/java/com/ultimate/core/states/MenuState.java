@@ -53,7 +53,6 @@ public class MenuState implements IState {
                         commandResult = new String("Character was successfully created. Race: " + commandAndAttributes[1] +
                                 " Name: " + commandAndAttributes[2]);
 
-
                     } else {
 
                         commandResult = new String("Character was not successfully created.");
@@ -98,27 +97,37 @@ public class MenuState implements IState {
                     return new Pair<>(commandResult, GameState.MENU_STATE);
                 }
 
+                boolean successCreation = false;
+
                 if (commandAndAttributes[1].equalsIgnoreCase("small") ||
                         commandAndAttributes[1].equalsIgnoreCase("average") ||
                         commandAndAttributes[1].equalsIgnoreCase("large")) {
 
                     if (commandAndAttributes[1].equalsIgnoreCase("small")) {
 
-                        createNewWorld(LocationSize.SMALL, commandAndAttributes[2]);
+                        successCreation = createNewWorld(LocationSize.SMALL, commandAndAttributes[2]);
 
                     } else if (commandAndAttributes[1].equalsIgnoreCase("average")) {
 
-                        createNewWorld(LocationSize.AVERAGE, commandAndAttributes[2]);
+                        successCreation = createNewWorld(LocationSize.AVERAGE, commandAndAttributes[2]);
 
                     } else if (commandAndAttributes[1].equalsIgnoreCase("large")) {
 
-                        createNewWorld(LocationSize.LARGE, commandAndAttributes[2]);
+                        successCreation = createNewWorld(LocationSize.LARGE, commandAndAttributes[2]);
                     }
 
-                    commandResult = new String("World was successfully created. Size: " + commandAndAttributes[1] +
-                            " Name: " + commandAndAttributes[2]);
-                    return new Pair<>(commandResult, GameState.MENU_STATE);
+                    if (successCreation) {
 
+                        commandResult = new String("World was successfully created. Size: " + commandAndAttributes[1] +
+                                " Name: " + commandAndAttributes[2]);
+
+                    } else {
+
+                        commandResult = new String("World was not successfully created.");
+                    }
+
+                    return new Pair<>(commandResult, GameState.MENU_STATE);
+                    
                 } else {
 
                     commandResult = new String("Wrong world size was selected!");
