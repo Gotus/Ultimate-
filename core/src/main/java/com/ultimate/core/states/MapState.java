@@ -36,6 +36,7 @@ public class MapState implements IState{
 
     public Pair<String, GameState> handleCommand(String command) {
 
+
         return new Pair<>("TODO", GameState.MAP_STATE);//TODO write a body
     }
 

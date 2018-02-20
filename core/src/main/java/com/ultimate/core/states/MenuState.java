@@ -1,6 +1,7 @@
 package com.ultimate.core.states;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ultimate.core.GameData;
 import com.ultimate.core.gameObjects.LocationSize;
 import com.ultimate.core.gameObjects.PlayCharacter;
@@ -16,9 +17,11 @@ import java.util.logging.FileHandler;
 
 public class MenuState implements IState {
 
-    public Pair<String, GameState> handleCommand(String command) {
+    public Pair<String, GameState> handleCommand(String JSONcommandString) {
 
-        String[] commandAndAttributes = command.split(" ");
+        ObjectMapper mapper = new ObjectMapper();
+        //JSONcommandString.replaceAll();
+        String[] commandAndAttributes = JSONcommandString.split(" ");
         String commandResult;
         switch (commandAndAttributes[0]) {
 
