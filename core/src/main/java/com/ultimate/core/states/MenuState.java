@@ -20,7 +20,6 @@ public class MenuState implements IState {
     public Pair<String, GameState> handleCommand(String JSONcommandString) {
 
         ObjectMapper mapper = new ObjectMapper();
-        //JSONcommandString.replaceAll();
 
         String command = "";
         String commandResult;

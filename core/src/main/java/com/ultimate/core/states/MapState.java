@@ -2,12 +2,14 @@ package com.ultimate.core.states;
 
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ultimate.core.gameObjects.Location;
 import com.ultimate.core.gameObjects.Map;
 import com.ultimate.core.gameObjects.PlayCharacter;
 import com.ultimate.core.gameObjects.World;
 import javafx.util.Pair;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class MapState implements IState{
@@ -34,8 +36,44 @@ public class MapState implements IState{
         return GameState.MAP_STATE;
     }
 
-    public Pair<String, GameState> handleCommand(String command) {
+    public Pair<String, GameState> handleCommand(String JSONcommandString) {
 
+        ObjectMapper mapper = new ObjectMapper();
+
+        String command = "";
+        String commandResult;
+        try {
+
+            command = mapper.readValue(JSONcommandString, String.class);
+
+        } catch (IOException exception) {
+
+            commandResult = new String("Command was not successfully parsed.");
+            return new Pair<>(commandResult, GameState.MAP_STATE);
+        }
+        String[] commandAndAttributes = command.split(" ");
+
+        switch (commandAndAttributes[0]) {
+
+            case "moveToNode":
+
+                if (commandAndAttributes.length != 2) {
+
+                    commandResult = new String("Wrong number of arguments!");
+                    return new Pair<>(commandResult, GameState.MAP_STATE);
+                }
+
+                if ( moveToNode(commandAndAttributes[1]) ) {
+
+                    command = new String("Successfully moved to " + commandAndAttributes[1]);
+
+                } else {
+
+                    command = new String("Node not found!");
+                }
+
+                return new Pair<>(command, GameState.MAP_STATE);
+        }
 
         return new Pair<>("TODO", GameState.MAP_STATE);//TODO write a body
     }
