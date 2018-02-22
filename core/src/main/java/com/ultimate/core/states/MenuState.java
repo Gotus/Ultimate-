@@ -21,8 +21,20 @@ public class MenuState implements IState {
 
         ObjectMapper mapper = new ObjectMapper();
         //JSONcommandString.replaceAll();
-        String[] commandAndAttributes = JSONcommandString.split(" ");
+
+        String command = "";
         String commandResult;
+        try {
+
+            command = mapper.readValue(JSONcommandString, String.class);
+
+        } catch (IOException exception) {
+
+            commandResult = new String("Command was not successfully parsed.");
+            return new Pair<>(commandResult, GameState.MAP_STATE);
+        }
+        String[] commandAndAttributes = command.split(" ");
+
         switch (commandAndAttributes[0]) {
 
             case "createNewCharacter":
