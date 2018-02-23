@@ -110,6 +110,40 @@ public class MapState implements IState{
                 }
 
                 return new Pair<>(commandResult, GameState.MAP_STATE);
+
+            case "exitWithSaving":
+
+                if (commandAndAttributes.length != 2) {
+
+                    commandResult = new String("Wrong number of arguments!");
+                    return new Pair<>(commandResult, GameState.MAP_STATE);
+                }
+
+                Boolean closeAfterSaving;
+
+                if (commandAndAttributes[1].equalsIgnoreCase("true")) {
+
+                    closeAfterSaving = true;
+
+                } else {
+
+                    closeAfterSaving = false;
+                }
+
+                try {
+
+                    exitWithSaving(closeAfterSaving, character, currentWorld);
+
+                } catch (IOException e) {
+
+                    commandResult = "IOException";
+                    return new Pair<>(commandResult, GameState.MAP_STATE);
+
+                } catch (ClassNotFoundException e) {
+
+                    commandResult = "ClassNotFoundException";
+                    return new Pair<>(commandResult, GameState.MAP_STATE);
+                }
         }
 
         return new Pair<>("TODO", GameState.MAP_STATE);//TODO write a body
@@ -178,5 +212,18 @@ public class MapState implements IState{
         }
 
         return false;
+    }
+
+    public void exitWithSaving(Boolean closeAfterSaving, PlayCharacter character, World world)
+            throws IOException, ClassNotFoundException
+    {
+
+        if (closeAfterSaving) {
+
+            com.ultimate.core.gameObjects.FileHandler.writeObjectToFile(world, "/saves/" + world.getName() + ".world");
+            com.ultimate.core.gameObjects.FileHandler.writeObjectToFile(character, "/saves/" + character.getName() + ".character");
+        }
+
+        System.exit(0);
     }
 }
