@@ -65,14 +65,51 @@ public class MapState implements IState{
 
                 if ( moveToNode(commandAndAttributes[1]) ) {
 
-                    command = new String("Successfully moved to " + commandAndAttributes[1]);
+                    commandResult = new String("Successfully moved to " + commandAndAttributes[1]);
 
                 } else {
 
-                    command = new String("Node not found!");
+                    commandResult = new String("Node not found!");
                 }
 
-                return new Pair<>(command, GameState.MAP_STATE);
+                return new Pair<>(commandResult, GameState.MAP_STATE);
+
+            case "moveInDirection":
+
+
+                if (commandAndAttributes.length != 2) {
+
+                    commandResult = new String("Wrong number of arguments!");
+                    return new Pair<>(commandResult, GameState.MAP_STATE);
+                }
+
+                Boolean success = false;
+                if (commandAndAttributes[1].equalsIgnoreCase("up")) {
+
+                    success = moveInDirection(Direction.NORTH);
+
+                } else if (commandAndAttributes[1].equalsIgnoreCase("down")) {
+
+                    success = moveInDirection(Direction.SOUTH);
+                } else if (commandAndAttributes[1].equalsIgnoreCase("left")) {
+
+                    success = moveInDirection(Direction.WEST);
+
+                } else if (commandAndAttributes[1].equalsIgnoreCase("right")) {
+
+                    success = moveInDirection(Direction.EAST);
+                }
+
+                if (success) {
+
+                    commandResult = new String("Moved to " + commandAndAttributes[1] + " successfully.");
+
+                } else {
+
+                    commandResult = new String("Coud not move to " + commandAndAttributes[1]);
+                }
+
+                return new Pair<>(commandResult, GameState.MAP_STATE);
         }
 
         return new Pair<>("TODO", GameState.MAP_STATE);//TODO write a body
