@@ -17,6 +17,7 @@ public class CurrentGame {
     public CurrentGame() {
 
         //currentState = new MapState(gameData.getWorld(), gameData.getPlayCharacter());
+        //nothing changed
     }
 
     public String handleCommand(String command){
